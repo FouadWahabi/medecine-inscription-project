@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class CreateEtudiantTable extends Migration
@@ -32,13 +32,7 @@ class CreateEtudiantTable extends Migration
             $t->string("login");
             $t->string("cin");
             $t->string("passport");
-
-
-            $t->integer("id_bac")->unsigned();
-            $t->integer("id_adress")->unsigned();
-            $t->integer("id_city")->unsigned();
-            $t->integer("id_fonction")->unsigned();
-            $t->integer("id_doctaurat")->unsigned();
+            
 
             $t->integer("id_bac")
                 ->on("Bac")

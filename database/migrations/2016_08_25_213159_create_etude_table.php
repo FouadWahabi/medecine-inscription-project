@@ -16,10 +16,6 @@ class CreateEtudeTable extends Migration
         Schema::create("Study", function (Blueprint $t) {
             $t->increments("id_study");
             $t->integer("year")->unsigned();
-            $t->integer("id_result")->unsigned();
-            $t->integer("id_level")->unsigned();
-            $t->integer("id_university")->unsigned();
-            $t->integer("id_student")->unsigned();
 
             $t->integer("id_result")
                 ->on("Result")

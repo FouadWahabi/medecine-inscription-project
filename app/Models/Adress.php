@@ -17,5 +17,11 @@ class Adress extends Model
     protected $primaryKey = 'id_adress';
     protected $fillable = ['ligne1', 'ligne2', 'postal_code', 'id_city'];
 
+    protected $hidden = ['id_city'];
     public $timestamps = false;
+
+    public function city()
+    {
+        $this->belongsTo('App\Models\City', 'id_city');
+    }
 }

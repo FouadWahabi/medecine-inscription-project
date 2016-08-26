@@ -16,12 +16,12 @@ class Student extends Model
     protected $primaryKey = 'id_student';
     protected $fillable = [
         'last_name', 'first_name', 'second_name', 'sex', 'birthday', 'city_id', 'cin', 'passport', 'phone',
-        'adress_id', 'mobile', 'mail', 'bac_id', 'study_access_year', 'oriented', 'origin_university', 'password', 'valid',
+        'id_adress', 'mobile', 'mail', 'id_bac', 'study_access_year', 'oriented', 'origin_university', 'password', 'valid',
         'qr_code', 'login', 'id_fonction', 'id_doctaurat'
     ];
 
     protected $hidden = [
-        'password'
+        'password', 'id_adress', 'id_fonction', 'id_doctaurat', 'id_bac'
     ];
     public $timestamps = false;
 
@@ -30,4 +30,13 @@ class Student extends Model
         return $this->hasMany('App\Models\Study', 'study_id');
     }
 
+    public function adress()
+    {
+        return $this->belongsTo('App\Models\Adress', 'id_adress');
+    }
+
+    public function bac()
+    {
+        return $this->belongsTo('App\Models\Bac', 'id_bac');
+    }
 }

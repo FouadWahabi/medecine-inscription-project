@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class CreateBacTable extends Migration
@@ -16,17 +16,17 @@ class CreateBacTable extends Migration
         Schema::create("Bac", function (Blueprint $t) {
             $t->increments("id_bac");
             $t->string("year");
-            $t->integer("id_type")->unsigned();
-            $t->integer("id_mention")->unsigned();
             $t->double("average");
             $t->string("school");
 
             $t->integer("id_type")
+                ->unsigned()
                 ->on("Type")
                 ->references('id_type')
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
             $t->integer("id_mention")
+                ->unsigned()
                 ->on("Mention")
                 ->references('id_mention')
                 ->onDelete("cascade")

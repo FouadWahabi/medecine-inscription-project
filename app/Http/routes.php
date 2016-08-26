@@ -33,3 +33,11 @@ $api->group(['middleware' => ['api']], function ($api) {
 //protected API routes with JWT (must be logged in)
 $api->group(['middleware' => ['api', 'api.auth']], function ($api) {
 });
+
+Route::group(['prefix' => 'registration-api'], function () {
+    Route::group(['prefix' => '/student'], function () {
+        Route::match(['get', 'post'], '/', 'StudentController@getStudent');
+        Route::match(['get', 'post'], '/{student_id}', 'StudentController@getStudent')->where('student_id', '[0-9]+');
+    });
+    Route::post('/register', 'StudentController@add');
+});
