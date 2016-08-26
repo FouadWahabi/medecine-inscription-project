@@ -19,16 +19,26 @@ class CreateBacTable extends Migration
             $t->double("average");
             $t->string("school");
 
-            $t->integer("id_type")
-                ->unsigned()
+
+            #foreign
+            $t->integer("id_type")->unsigned();
+            $t->integer("id_mention")->unsigned();
+            $t->integer("id_student")->unsigned();
+
+
+            $t->foreign("id_type")
                 ->on("Type")
                 ->references('id_type')
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
-            $t->integer("id_mention")
-                ->unsigned()
+            $t->foreign("id_mention")
                 ->on("Mention")
                 ->references('id_mention')
+                ->onDelete("cascade")
+                ->onUpdate("cascade");
+            $t->foreign("id_student")
+                ->on("Student")
+                ->references('id_student')
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
         });
@@ -44,6 +54,7 @@ class CreateBacTable extends Migration
         Schema::table("Bac", function (Blueprint $t) {
             $t->dropForeign(['id_mention']);
             $t->dropForeign(['id_type']);
+            $t->dropForeign(['id_student']);
         });
         Schema::drop("Bac");
     }

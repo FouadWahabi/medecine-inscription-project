@@ -18,7 +18,23 @@ class CreateAdresseTable extends Migration
             $t->string("ligne1");
             $t->string("ligne2");
             $t->integer("postal_code")->unsigned();
+
+
+            #foreign
+            $t->integer("id_student")->unsigned();
+            $t->integer("id_fonction")->unsigned();
             $t->integer("id_city")->unsigned();
+
+            $t->foreign("id_student")
+                ->on("Student")
+                ->references("id_student")
+                ->onDelete("cascade")
+                ->onUpdate("cascade");
+            $t->foreign("id_fonction")
+                ->on("Fonction")
+                ->references("id_fonction")
+                ->onDelete("cascade")
+                ->onUpdate("cascade");
             $t->foreign("id_city")
                 ->on("City")
                 ->references("id_city")
@@ -35,7 +51,9 @@ class CreateAdresseTable extends Migration
      */
     public function down()
     {
-        Schema::table("Adress",function(Blueprint $t){
+        Schema::table("Adress", function (Blueprint $t) {
+            $t->dropForeign(['id_student']);
+            $t->dropForeign(['id_fonction']);
             $t->dropForeign(['id_city']);
         });
         Schema::drop("Adress");

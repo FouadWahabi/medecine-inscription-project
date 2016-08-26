@@ -32,34 +32,16 @@ class CreateEtudiantTable extends Migration
             $t->string("login");
             $t->string("cin");
             $t->string("passport");
-            
 
-            $t->integer("id_bac")
-                ->on("Bac")
-                ->references('id_bac')
-                ->onDelete("cascade")
-                ->onUpdate("cascade");
-
-            $t->integer("id_adress")
-                ->on("Adress")
-                ->references('id_adress')
-                ->onDelete("cascade")
-                ->onUpdate("cascade");
-            $t->integer("id_city")
+            #foreign
+            $t->integer("id_city")->unsigned();
+            $t->foreign("id_city")
                 ->on("City")
-                ->references('id_city')
+                ->references("id_city")
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
-            $t->integer("id_fonction")
-                ->on("Fonction")
-                ->references('id_fonction')
-                ->onDelete("cascade")
-                ->onUpdate("cascade");
-            $t->integer("id_doctaurat")
-                ->on("Doctaurat")
-                ->references('id_doctaurat')
-                ->onDelete("cascade")
-                ->onUpdate("cascade");
+
+
         });
     }
 
@@ -70,6 +52,9 @@ class CreateEtudiantTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table("Bac", function (Blueprint $t) {
+            $t->dropForeign(['id_city']);
+        });
+        Schema::drop("Student");
     }
 }

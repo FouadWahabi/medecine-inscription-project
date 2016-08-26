@@ -17,22 +17,28 @@ class CreateEtudeTable extends Migration
             $t->increments("id_study");
             $t->integer("year")->unsigned();
 
-            $t->integer("id_result")
+            #foreign
+            $t->integer("id_result")->unsigned();
+            $t->integer("id_student")->unsigned();
+            $t->integer("id_level")->unsigned();
+            $t->integer("id_university")->unsigned();
+
+            $t->foreign("id_result")
                 ->on("Result")
                 ->references('id_result')
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
-            $t->integer("id_student")
+            $t->foreign("id_student")
                 ->on("Student")
                 ->references('id_student')
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
-            $t->integer("id_level")
+            $t->foreign("id_level")
                 ->on("Level")
                 ->references('id_level')
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
-            $t->integer("id_university")
+            $t->foreign("id_university")
                 ->on("University")
                 ->references('id_university')
                 ->onDelete("cascade")
@@ -51,6 +57,7 @@ class CreateEtudeTable extends Migration
             $t->dropForeign(['id_result']);
             $t->dropForeign(['id_level']);
             $t->dropForeign(['id_university']);
+            $t->dropForeign(['id_student']);
         });
         Schema::drop("Study");
     }

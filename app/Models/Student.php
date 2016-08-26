@@ -15,13 +15,13 @@ class Student extends Model
     protected $table = 'Student';
     protected $primaryKey = 'id_student';
     protected $fillable = [
-        'last_name', 'first_name', 'second_name', 'sex', 'birthday', 'city_id', 'cin', 'passport', 'phone',
-        'id_adress', 'mobile', 'mail', 'id_bac', 'study_access_year', 'oriented', 'origin_university', 'password', 'valid',
-        'qr_code', 'login', 'id_fonction', 'id_doctaurat'
+        'last_name', 'first_name', 'second_name', 'sex', 'birthday', 'id_city', 'cin', 'passport', 'phone',
+        'mobile', 'mail', 'study_access_year', 'oriented', 'origin_university', 'password', 'valid',
+        'qr_code', 'login'
     ];
 
     protected $hidden = [
-        'password', 'id_adress', 'id_fonction', 'id_doctaurat', 'id_bac'
+        'password', 'id_adress'
     ];
     public $timestamps = false;
 

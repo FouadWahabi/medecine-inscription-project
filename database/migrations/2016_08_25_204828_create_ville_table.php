@@ -16,6 +16,8 @@ class CreateVilleTable extends Migration
         Schema::create("City", function (Blueprint $t) {
             $t->increments("id_city");
             $t->string("label");
+
+            #foreign
             $t->integer("id_country")->unsigned();
             $t->foreign("id_country")
                 ->references("id_country")

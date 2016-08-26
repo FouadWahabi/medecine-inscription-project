@@ -15,10 +15,13 @@ class CreateDoctauratTable extends Migration
     {
         Schema::create("Doctaurat", function (Blueprint $t) {
             $t->increments("id_doctaurat");
-            $t->integer("id_university")->unsigned();
             $t->date("date_of_pitch");
-            $t->integer("id_mention")->unsigned();
             $t->integer("numero")->unsigned();
+
+            #foreign
+            $t->integer("id_student")->unsigned();
+            $t->integer("id_university")->unsigned();
+            $t->integer("id_mention")->unsigned();
 
 
             $t->foreign("id_university")
@@ -29,6 +32,11 @@ class CreateDoctauratTable extends Migration
             $t->foreign("id_mention")
                 ->on("Mention")
                 ->references("id_mention")
+                ->onDelete("cascade")
+                ->onUpdate("cascade");
+            $t->foreign("id_student")
+                ->on("Student")
+                ->references("id_student")
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
         });
@@ -44,6 +52,7 @@ class CreateDoctauratTable extends Migration
         Schema::table("Doctaurat", function (Blueprint $t) {
             $t->dropForeign(['id_university']);
             $t->dropForeign(['id_mention']);
+            $t->dropForeign(['id_student']);
         });
         Schema::drop("Doctaurat");
     }

@@ -15,7 +15,7 @@ class Bac extends Model
 {
     protected $table = 'Bac';
     protected $primaryKey = 'id_bac';
-    protected $fillable = ['year', 'id_type', 'id_mention', 'average', 'school'];
+    protected $fillable = ['year', 'id_type', 'id_mention', 'average', 'school', 'id_student'];
 
     public $timestamps = false;
 }

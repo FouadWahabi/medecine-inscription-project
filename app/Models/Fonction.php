@@ -13,7 +13,7 @@ class Fonction
 {
     protected $table = 'Fonction';
     protected $primaryKey = 'id_fonction';
-    protected $fillable = ['nature', 'employer', 'date_of_inauguration', 'id_adress'];
+    protected $fillable = ['nature', 'employer', 'date_of_inauguration', 'id_student'];
 
     public $timestamps = false;
 }

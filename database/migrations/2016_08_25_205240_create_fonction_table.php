@@ -18,9 +18,12 @@ class CreateFonctionTable extends Migration
             $t->string("nature");
             $t->string("employer");
             $t->date("date_of_inauguration");
-            $t->integer("id_adress")
-                ->on("Adress")
-                ->references('id_adress')
+            $t->integer("id_student")->unsigned();
+
+            #foreign
+            $t->foreign("id_student")
+                ->on("Student")
+                ->references("id_student")
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
         });
@@ -33,8 +36,8 @@ class CreateFonctionTable extends Migration
      */
     public function down()
     {
-        Schema::table("Fonction",function(Blueprint $t){
-            $t->dropForeign(['id_adress']);
+        Schema::table("Fonction", function (Blueprint $t) {
+            $t->dropForeign(['id_student']);
         });
         Schema::drop("Fonction");
     }
