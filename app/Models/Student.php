@@ -8,10 +8,13 @@
  */
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class Student extends Model implements Authenticatable
 {
+    use \Illuminate\Auth\Authenticatable;
+
     protected $table = 'Student';
     protected $primaryKey = 'id_student';
     protected $fillable = [
@@ -24,7 +27,6 @@ class Student extends Model
         'password'
     ];
     public $timestamps = false;
-
 
     public function study()
     {
