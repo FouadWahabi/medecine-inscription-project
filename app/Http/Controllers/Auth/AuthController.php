@@ -17,8 +17,8 @@ class AuthController extends Controller
     {
 
 
-        $credentials = $request->only('mail', 'password');
-        $student = Student::whereMail($request->input("mail"))->get()->first();
+        $credentials = $request->only('email', 'password');
+        $student = Student::whereEmail($request->input("email"))->get()->first();
         if ($student->valid == 0) {
             return response()->error('invalid_user', 500);
         }

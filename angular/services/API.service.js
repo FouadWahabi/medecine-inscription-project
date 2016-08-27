@@ -1,32 +1,42 @@
 export class APIService {
-	constructor(Restangular, ToastService, $window) {
-		'ngInject';
-		//content negotiation
-		let headers = {
-			'Content-Type': 'application/json',
-			'Accept': 'application/x.laravel.v1+json'
-		};
+    constructor(Restangular, ToastService, $window) {
+        'ngInject';
+        //content negotiation
+        let headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/x.laravel.v1+json'
+        };
 
-		return Restangular.withConfig(function(RestangularConfigurer) {
-			RestangularConfigurer
-				.setBaseUrl('/api/')
-				.setDefaultHeaders(headers)
-				.setErrorInterceptor(function(response) {
-					if (response.status === 422 || response.status === 401) {
-						for (let error in response.data.errors) {
-							return ToastService.error(response.data.errors[error][0]);
-						}
-					}
-                    if (response.status === 500) {
-                      return ToastService.error(response.statusText)
+        return Restangular.withConfig(function (RestangularConfigurer) {
+            RestangularConfigurer
+                .setBaseUrl('/api/')
+                .setDefaultHeaders(headers)
+                .setErrorInterceptor(function (response) {
+                    if (response.status === 422 || response.status === 401) {
+                        for (let error in response.data.errors) {
+                            return ToastService.error(response.data.errors[error][0]);
+                        }
                     }
-				})
-				.addFullRequestInterceptor(function(element, operation, what, url, headers) {
-					let token = $window.localStorage.satellizer_token;
-					if (token) {
-						headers.Authorization = 'Bearer ' + token;
-					}
-				});
-		});
-	}
+                    if (response.status === 500) {
+                        return ToastService.error(response.statusText)
+                    }
+                })
+                .addFullRequestInterceptor(function (element, operation, what, url, headers) {
+                    let token = $window.localStorage.satellizer_token;
+                    if (token) {
+                        headers.Authorization = 'Bearer ' + token;
+                    }
+                }).addResponseInterceptor(function (data, operation, what, url, response, deferred) {
+                var extractedData;
+                // .. to look for getList operations
+                if (operation === "getList") {
+                    // .. and handle the data and meta data
+                    extractedData = response.response;
+                } else {
+                    extractedData = data.data;
+                }
+                return extractedData;
+            });
+        });
+    }
 }

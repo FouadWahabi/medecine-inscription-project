@@ -1,0 +1,8 @@
+<md-list>
+    <md-list-item class="md-3-line" ng-repeat="student in students" ng-click="null">
+        <img ng-src="http://localhost:8000/{{student.img}}" class="md-avatar"/>
+        <div class="md-list-item-text" layout="column">
+            <h3>{{student.last_name}} {{student.first_name}}</h3>
+        </div>
+    </md-list-item>
+</md-list>

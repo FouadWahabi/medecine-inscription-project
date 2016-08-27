@@ -32,18 +32,21 @@ $api->group(['middleware' => ['api']], function ($api) {
     $api->post('auth/password/email', 'Auth\PasswordResetController@sendResetLinkEmail');
     $api->get('auth/password/verify', 'Auth\PasswordResetController@verify');
     $api->post('auth/password/reset', 'Auth\PasswordResetController@reset');
+
+    $api->group(['prefix' => 'student'], function ($api) {
+        $api->match(['get', 'post'], '/', 'StudentController@getStudent');
+        $api->match(['get', 'post'], '/{student_id}', 'StudentController@getStudent')->where('student_id', '[0-9]+');
+        $api->match(['get', 'post'], '/{student_id}/validate/{token}', 'StudentController@validateStudentCompte')->where('student_id', '[0-9]+');
+        $api->post('/{student_id}/upload-photo', 'StudentController@uploadPhoto')->where('student_id', '[0-9]+');
+    });
 });
 
 //protected API routes with JWT (must be logged in)
 $api->group(['middleware' => ['api', 'api.auth']], function ($api) {
+    Route::post('student/{student_id}/upload-photo', 'StudentController@uploadPhoto')->where('student_id', '[0-9]+');
 });
 
 Route::group(['prefix' => 'registration-api'], function () {
-    Route::group(['prefix' => '/student'], function () {
-        Route::match(['get', 'post'], '/', 'StudentController@getStudent');
-        Route::match(['get', 'post'], '/{student_id}', 'StudentController@getStudent')->where('student_id', '[0-9]+');
-        Route::match(['get', 'post'], '/{student_id}/validate/{token}', 'StudentController@validateStudentCompte')->where('student_id', '[0-9]+');
-        Route::post('/{student_id}/upload-photo', 'StudentController@uploadPhoto')->where('student_id', '[0-9]+');
-    });
+
     Route::post('/register', 'StudentController@add');
 });

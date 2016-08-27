@@ -17,6 +17,7 @@
     "angular-material": "~1.0.8",
     "restangular": "~1.5.2",
     "angular-loading-bar": "~0.9.0",
-    "satellizer": "^0.14.0"
+    "satellizer": "^0.14.0",
+    "lf-ng-md-file-input": "^1.4.8"
   }
 }

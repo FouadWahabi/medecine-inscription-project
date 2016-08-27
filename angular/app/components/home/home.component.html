@@ -1,0 +1,9 @@
+<h2>Bonsoir {{vm.user.last_name}} {{vm.user.first_name}}</h2>
+<h3>Ajouter une photo pour que votre dossier devient complet</h3>
+<form>
+    <input onchange="vm.fileSelected(this)" type="file" accept="image">
+    <md-button ng-click="vm.uploadPhoto(vm.myUpload)" class="md-primary md-raised">Add Photo</md-button>
+</form>
+<h4 ng-if="vm.user.valid_dossier==0">NB : Votre Dossier est en cours de traitement</h4>
+<h4 ng-if="vm.user.valid_dossier==1">NB : Votre Dossier est validé</h4>
+<h4 ng-if="vm.user.valid_dossier==2">NB : Votre Dossier est refusée</h4>

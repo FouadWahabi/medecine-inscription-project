@@ -19,10 +19,11 @@ class CreateEtudiantTable extends Migration
             $t->string("first_name");
             $t->string("second_name");
             $t->char("sex", 5);
+            $t->boolean("valid_dossier");
             $t->date("birthday");
             $t->string("mobile");
             $t->string("phone");
-            $t->string("mail");
+            $t->string("email");
             $t->integer("study_access_year")->unsigned();
             $t->boolean("oriented");
             $t->string("origin_university");

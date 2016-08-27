@@ -13,8 +13,8 @@ class Student extends Model implements Authenticatable
     protected $primaryKey = 'id_student';
     protected $fillable = [
         'last_name', 'first_name', 'second_name', 'sex', 'birthday', 'id_city', 'cin', 'passport', 'phone',
-        'mobile', 'mail', 'study_access_year', 'oriented', 'origin_university', 'password', 'valid',
-        'qr_code', 'login', 'confirmation_code', 'valid_from_administration', 'img'
+        'mobile', 'email', 'study_access_year', 'oriented', 'origin_university', 'password', 'valid',
+        'qr_code', 'login', 'confirmation_code', 'valid_from_administration', 'img' ,'valid_dossier'
     ];
 
     protected $hidden = [
