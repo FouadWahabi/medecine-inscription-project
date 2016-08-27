@@ -42,6 +42,8 @@ Route::group(['prefix' => 'registration-api'], function () {
     Route::group(['prefix' => '/student'], function () {
         Route::match(['get', 'post'], '/', 'StudentController@getStudent');
         Route::match(['get', 'post'], '/{student_id}', 'StudentController@getStudent')->where('student_id', '[0-9]+');
+        Route::match(['get', 'post'], '/{student_id}/validate/{token}', 'StudentController@validateStudentCompte')->where('student_id', '[0-9]+');
+        Route::post('/{student_id}/upload-photo', 'StudentController@uploadPhoto')->where('student_id', '[0-9]+');
     });
     Route::post('/register', 'StudentController@add');
 });

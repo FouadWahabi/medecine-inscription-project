@@ -32,6 +32,9 @@ class CreateEtudiantTable extends Migration
             $t->string("login");
             $t->string("cin");
             $t->string("passport");
+            $t->boolean("valid_from_administration");
+            $t->string("confirmation_code");
+            $t->string("img");
 
             #foreign
             $t->integer("id_city")->unsigned();

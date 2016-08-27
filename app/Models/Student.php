@@ -14,11 +14,11 @@ class Student extends Model implements Authenticatable
     protected $fillable = [
         'last_name', 'first_name', 'second_name', 'sex', 'birthday', 'id_city', 'cin', 'passport', 'phone',
         'mobile', 'mail', 'study_access_year', 'oriented', 'origin_university', 'password', 'valid',
-        'qr_code', 'login'
+        'qr_code', 'login', 'validation_code', 'valid_from_administration', 'img'
     ];
 
     protected $hidden = [
-        'password'
+        'password', 'validation_code'
     ];
     public $timestamps = false;
 
