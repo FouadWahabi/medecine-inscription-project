@@ -1,0 +1,32 @@
+<form form-step-validity name="studentInscriptionFormBac">
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Bac Year</label>
+            <input ng-model="vm.studentForm.bac_year" ng-pattern="/^[0-9]{4}$/" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Average</label>
+            <input type="text" ng-model="vm.studentForm.average" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>School</label>
+            <input type="text" ng-model="vm.studentForm.school" required>
+        </md-input-container>
+    </div>
+
+    <div layout="row" layout-xs="column">
+        <md-button class="StudentForm-previous md-primary md-raised" ng-click="$previousStep()" flex>Previous
+        </md-button>
+        <md-button class="StudentForm-submit md-primary md-raised" type="submit"
+                   ng-disabled="studentInscriptionFormBac.$invalid" flex>Submit
+        </md-button>
+    </div>
+
+</form>

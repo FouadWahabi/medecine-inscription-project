@@ -1,0 +1,33 @@
+<form form-step-validity name="studentInscriptionFormAddress">
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Poste code</label>
+            <input ng-model="vm.studentForm.postal_code" ng-pattern="/^[0-9]{4}$/" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Label Address</label>
+            <input type="text" ng-model="vm.studentForm.label_adress" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-select ng-model="vm.studentForm.id_city" placeholder="City" class="md-no-underline" required>
+            <md-option value="Munich">Munich</md-option>
+            <md-option value="Paris">Paris</md-option>
+            <md-option value="Marseille">Marseille</md-option>
+        </md-select>
+    </div>
+
+    <div layout="row" layout-xs="column">
+        <md-button class="StudentForm-previous md-primary md-raised" ng-click="$previousStep()" flex>Previous
+        </md-button>
+        <md-button class="StudentForm-next md-primary md-raised" ng-click="$nextStep()"
+                   ng-disabled="studentInscriptionFormAddress.$invalid" flex>Next
+        </md-button>
+    </div>
+
+</form>

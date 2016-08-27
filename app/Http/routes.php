@@ -34,10 +34,11 @@ $api->group(['middleware' => ['api']], function ($api) {
 $api->group(['middleware' => ['api', 'api.auth']], function ($api) {
 });
 
-Route::group(['prefix' => 'registration-api'], function () {
-    Route::group(['prefix' => '/student'], function () {
-        Route::match(['get', 'post'], '/', 'StudentController@getStudent');
-        Route::match(['get', 'post'], '/{student_id}', 'StudentController@getStudent')->where('student_id', '[0-9]+');
-    });
-    Route::post('/register', 'StudentController@add');
+$api->group(['prefix' => 'student'], function ($api) {
+    // /api/student
+    $api->match(['get', 'post'], '/', 'StudentController@getStudent');
+    // /api/student/{student_id}
+    $api->match(['get', 'post'], '/{student_id}', 'StudentController@getStudent')->where('student_id', '[0-9]+');
+    // /api/student/create
+    $api->post('/create', 'StudentController@add');
 });

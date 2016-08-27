@@ -1,0 +1,98 @@
+<form form-step-validity name="studentInscriptionFormGeneral">
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>First Name</label>
+            <input type="text" ng-model="vm.studentForm.first_name" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Last Name</label>
+            <input type="text" ng-model="vm.studentForm.last_name" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Second Name</label>
+            <input type="text" ng-model="vm.studentForm.second_name" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <h4>Sexe</h4>
+        <md-radio-group ng-model="vm.studentForm.sex" class="StudentForm-inputContainer" required>
+            <md-radio-button value="Homme" class="md-primary">Homme</md-radio-button>
+            <md-radio-button value="Femme" class="md-primary">Femme</md-radio-button>
+        </md-radio-group>
+    </div>
+
+    <div>
+        <h4>Birthday</h4>
+        <md-datepicker ng-model="vm.studentForm.birthday" md-placeholder="Birthday" required></md-datepicker>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>CIN</label>
+            <input ng-model="vm.studentForm.cin" ng-pattern="/^[0-9]{8}$/" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Passport</label>
+            <input ng-model="vm.studentForm.passport" ng-pattern="/^[0-9]{8}$/" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Phone</label>
+            <input ng-model="vm.studentForm.phone" ng-pattern="/^[0-9]{8}$/" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Mobile</label>
+            <input ng-model="vm.studentForm.mobile" ng-model="vm.studentForm.mobile" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Mail</label>
+            <input type="email" ng-model="vm.studentForm.mail" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Study Access Year</label>
+            <input type="text" ng-model="vm.studentForm.study_access_year" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-checkbox ng-model="vm.studentForm.oriented" aria-label="Oriented" required>
+            Oriented
+        </md-checkbox>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Origin University</label>
+            <input type="text" ng-model="vm.studentForm.origin_university" required>
+        </md-input-container>
+    </div>
+
+    <div layout="row" layout-xs="column">
+        <md-button class="StudentForm-next md-primary md-raised"
+                   ng-disabled="studentInscriptionFormGeneral.$invalid"
+                   ng-click="$nextStep()" flex>Next
+        </md-button>
+    </div>
+
+</form>
