@@ -17,4 +17,20 @@ class Study extends Model
     protected $fillable = ['year', 'id_result', 'id_level', 'id_university', 'id_student'];
 
     public $timestamps = false;
+    protected $hidden = ['id_result', 'id_level', 'id_university', 'id_student'];
+
+    public function level()
+    {
+        return $this->belongsTo('\App\Models\Level', 'id_level');
+    }
+
+    public function result()
+    {
+        return $this->belongsTo('\App\Models\Result', 'id_result');
+    }
+
+    public function university()
+    {
+        return $this->belongsTo('\App\Models\University', 'id_university');
+    }
 }

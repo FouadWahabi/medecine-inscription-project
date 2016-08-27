@@ -26,9 +26,9 @@ class Student extends Model
     public $timestamps = false;
 
 
-    public function study()
+    public function studies()
     {
-        return $this->hasMany('App\Models\Study', 'study_id');
+        return $this->hasMany('App\Models\Study', 'id_student');
     }
 
     public function adress()

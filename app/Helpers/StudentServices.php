@@ -6,9 +6,11 @@ use App\Models\Adress;
 use App\Models\Bac;
 use App\Models\Fonction;
 use App\Models\Student;
+use App\Models\Study;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class StudentServices
 {
@@ -16,13 +18,15 @@ class StudentServices
     public function getAllStudents()
     {
         return Student::with(['adress', 'adress.city', 'adress.city.country',
-            'bac', 'bac.type', 'bac.mention', 'fonction', 'fonction.adress'])->get();
+            'bac', 'bac.type', 'bac.mention', 'fonction', 'fonction.adress',
+            'studies', 'studies.level', 'studies.result', 'studies.university'])->get();
     }
 
     public function getStudentById($student_id)
     {
         return Student::with(['adress', 'adress.city', 'adress.city.country',
-            'bac', 'bac.type', 'bac.mention', 'fonction', 'fonction.adress'])->find($student_id);
+            'bac', 'bac.type', 'bac.mention', 'fonction', 'fonction.adress',
+            'studies', 'studies.level', 'studies.result', 'studies.university'])->find($student_id);
     }
 
     public function store(Request $request)
@@ -64,6 +68,17 @@ class StudentServices
             $bac->id_mention = $data['bac_mention'];
             $bac->save();
 
+            if ($request->has(['studies'])) {
+                foreach ($data["studies"] as $tmp) {
+                    $study = new Study();
+                    $study->year = $tmp['study_year'];
+                    $study->id_student = $student->id_student;
+                    $study->id_university = $tmp['study_university'];
+                    $study->id_level = $tmp['study_level'];
+                    $study->id_result = $tmp['study_resultat'];
+                    $study->save();
+                }
+            }
             //doctaurat
             if ($request->has(['doctaurat'])) {
 
@@ -87,6 +102,13 @@ class StudentServices
                 $adress->save();
             }
 
+            //mail sending
+            $link = "";
+            Mail::send('validationEmail', ['nom' => $student->first_name,
+                'prenom' => $student->last_name, 'CIN' => $student->cin,
+                'link' => $link], function ($message) use ($student) {
+                $message->to($student->mail)->subject('Validation de compte');
+            });
             return $this->getStudentById($student->id_student);
         } catch (QueryException $e) {
             Log::info($e->getTraceAsString());
