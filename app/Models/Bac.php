@@ -18,4 +18,15 @@ class Bac extends Model
     protected $fillable = ['year', 'id_type', 'id_mention', 'average', 'school', 'id_student'];
 
     public $timestamps = false;
+    protected $hidden = ['id_type', 'id_mention', 'id_student'];
+
+    public function type()
+    {
+        return $this->belongsTo('\App\Models\Type', 'id_type');
+    }
+
+    public function mention()
+    {
+        return $this->belongsTo('\App\Models\Mention', 'id_mention');
+    }
 }

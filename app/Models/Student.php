@@ -21,9 +21,10 @@ class Student extends Model
     ];
 
     protected $hidden = [
-        'password', 'id_adress'
+        'password'
     ];
     public $timestamps = false;
+
 
     public function study()
     {
@@ -32,11 +33,21 @@ class Student extends Model
 
     public function adress()
     {
-        return $this->belongsTo('App\Models\Adress', 'id_adress');
+        return $this->hasOne('App\Models\Adress', 'id_student');
     }
 
     public function bac()
     {
-        return $this->belongsTo('App\Models\Bac', 'id_bac');
+        return $this->hasOne('App\Models\Bac', 'id_student');
+    }
+
+    public function doctaurat()
+    {
+        return $this->hasOne('App\Models\Doctaurat', 'id_student');
+    }
+
+    public function fonction()
+    {
+        return $this->hasOne('App\Models\Fonction', 'id_student');
     }
 }

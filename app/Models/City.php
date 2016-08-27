@@ -15,7 +15,13 @@ class City extends Model
 {
     protected $table = 'City';
     protected $primaryKey = 'id_city';
-    protected $fillable = ['label','id_country'];
+    protected $fillable = ['label', 'id_country'];
 
     public $timestamps = false;
+    protected $hidden = ['id_country'];
+
+    public function country()
+    {
+        return $this->belongsTo('\App\Models\Country', 'id_country');
+    }
 }
