@@ -10,7 +10,6 @@ use App\Models\Study;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 
 class StudentServices
 {
@@ -103,12 +102,14 @@ class StudentServices
             }
 
             //mail sending
+            /*
             $link = "";
             Mail::send('validationEmail', ['nom' => $student->first_name,
                 'prenom' => $student->last_name, 'CIN' => $student->cin,
                 'link' => $link], function ($message) use ($student) {
                 $message->to($student->mail)->subject('Validation de compte');
             });
+            */
             return $this->getStudentById($student->id_student);
         } catch (QueryException $e) {
             Log::info($e->getTraceAsString());
