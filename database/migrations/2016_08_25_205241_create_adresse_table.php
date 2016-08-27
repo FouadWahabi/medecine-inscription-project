@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class CreateAdresseTable extends Migration
@@ -21,8 +21,8 @@ class CreateAdresseTable extends Migration
 
 
             #foreign
-            $t->integer("id_student")->unsigned();
-            $t->integer("id_fonction")->unsigned();
+            $t->integer("id_student")->unsigned()->nullable();
+            $t->integer("id_fonction")->unsigned()->nullable();
             $t->integer("id_city")->unsigned();
 
             $t->foreign("id_student")

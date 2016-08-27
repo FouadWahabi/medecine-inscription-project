@@ -11,27 +11,39 @@
 |
 */
 
+
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'AngularController@serveApp');
 
     Route::get('/unsupported-browser', 'AngularController@unsupported');
+
 });
+
 
 //public API routes
 $api->group(['middleware' => ['api']], function ($api) {
 
     // Authentication Routes...
-    $api->post('auth/login', 'Auth\AuthController@login');
+
     $api->post('auth/register', 'Auth\AuthController@register');
+    $api->post('auth/login', 'Auth\AuthController@login');
 
     // Password Reset Routes...
     $api->post('auth/password/email', 'Auth\PasswordResetController@sendResetLinkEmail');
     $api->get('auth/password/verify', 'Auth\PasswordResetController@verify');
     $api->post('auth/password/reset', 'Auth\PasswordResetController@reset');
+
+    $api->group(['prefix' => 'student'], function ($api) {
+        $api->match(['get', 'post'], '/', 'StudentController@getStudent');
+        $api->match(['get', 'post'], '/{student_id}', 'StudentController@getStudent')->where('student_id', '[0-9]+');
+        $api->match(['get', 'post'], '/{student_id}/validate/{token}', 'StudentController@validateStudentCompte')->where('student_id', '[0-9]+');
+        $api->post('/{student_id}/upload-photo', 'StudentController@uploadPhoto')->where('student_id', '[0-9]+');
+    });
 });
 
 //protected API routes with JWT (must be logged in)
 $api->group(['middleware' => ['api', 'api.auth']], function ($api) {
+    Route::post('student/{student_id}/upload-photo', 'StudentController@uploadPhoto')->where('student_id', '[0-9]+');
 });
 
 $api->group(['prefix' => 'student'], function ($api) {

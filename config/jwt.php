@@ -21,7 +21,7 @@ return [
     |
     */
 
-    'secret' => env('JWT_SECRET', 'Ucx039LWGxgZPKeknjEMWO4xS6kfiKZ1'),
+    'secret' => env('JWT_SECRET', 'PYXoqXdRIQi9r1ex3wiJJSrmSKZKfMok'),
 
     /*
     |--------------------------------------------------------------------------
@@ -73,7 +73,7 @@ return [
     |
     */
 
-    'user' => 'App\User',
+    'user' => 'App\Models\Student',
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'identifier' => 'id',
+    'identifier' => 'id_student',
 
     /*
     |--------------------------------------------------------------------------

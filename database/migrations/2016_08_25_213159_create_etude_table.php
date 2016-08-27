@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class CreateEtudeTable extends Migration
@@ -15,7 +15,7 @@ class CreateEtudeTable extends Migration
     {
         Schema::create("Study", function (Blueprint $t) {
             $t->increments("id_study");
-            $t->integer("year")->unsigned();
+            $t->string("year");
 
             #foreign
             $t->integer("id_result")->unsigned();

@@ -2,12 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcff3a65-54c3-4309-a311-2dca4cc6db34" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/icons/logo-med.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/seeds/CitySeed.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/seeds/CountrySeed.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/seeds/LevelSeed.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/seeds/MentionSeed.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/seeds/ResultSeed.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/seeds/TypeSeed.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/seeds/UniversitySeed.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Helpers/Utils.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular/app/components/home/home.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular/app/components/home/home.component.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular/app/pages/home/home.page.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular/app/components/home/home.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular/app/components/admin/list-student/list-student.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular/app/components/admin/list-student/list-student.component.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular/app/pages/admin/list-student/list-student.page.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular/app/components/admin/list-student/list-student.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular/directives/ng-file-select.directive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/validationEmail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_08_25_204829_create_etudiant_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_08_25_204829_create_etudiant_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_08_25_205241_create_adresse_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_08_25_205241_create_adresse_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_08_25_213159_create_etude_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_08_25_213159_create_etude_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/services/API.service.js" afterPath="$PROJECT_DIR$/angular/services/API.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Adress.php" afterPath="$PROJECT_DIR$/app/Models/Adress.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Bac.php" afterPath="$PROJECT_DIR$/app/Models/Bac.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/City.php" afterPath="$PROJECT_DIR$/app/Models/City.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Fonction.php" afterPath="$PROJECT_DIR$/app/Models/Fonction.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Kernel.php" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Student.php" afterPath="$PROJECT_DIR$/app/Models/Student.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Helpers/StudentServices.php" afterPath="$PROJECT_DIR$/app/Helpers/StudentServices.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Study.php" afterPath="$PROJECT_DIR$/app/Models/Study.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/app/components/app-header/app-header.component.html" afterPath="$PROJECT_DIR$/angular/app/components/app-header/app-header.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/app/components/app-header/app-header.component.js" afterPath="$PROJECT_DIR$/angular/app/components/app-header/app-header.component.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/auth.php" afterPath="$PROJECT_DIR$/config/auth.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/app/pages/footer/footer.page.html" afterPath="$PROJECT_DIR$/angular/app/pages/footer/footer.page.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/index.components.js" afterPath="$PROJECT_DIR$/angular/index.components.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/index.directives.js" afterPath="$PROJECT_DIR$/angular/index.directives.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/index.modules.js" afterPath="$PROJECT_DIR$/angular/index.modules.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/index.services.js" afterPath="$PROJECT_DIR$/angular/index.services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/jwt.php" afterPath="$PROJECT_DIR$/config/jwt.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/app/components/login-form/login-form.component.js" afterPath="$PROJECT_DIR$/angular/app/components/login-form/login-form.component.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/app/pages/login/login.page.html" afterPath="$PROJECT_DIR$/angular/app/pages/login/login.page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/mail.php" afterPath="$PROJECT_DIR$/config/mail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular/config/routes.config.js" afterPath="$PROJECT_DIR$/angular/config/routes.config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/service-worker.js" afterPath="$PROJECT_DIR$/public/service-worker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="medecine-inscription-project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,46 +94,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="student_inscription.page.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/angular/app/pages/student_inscription/student_inscription.page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="student_inscription.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/angular/app/pages/student_inscription/student_inscription.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384">
-              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="student_inscription_form.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/angular/app/components/student_inscription_form/student_inscription_form.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3076923">
-              <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="student_inscription_form.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/angular/app/components/student_inscription_form/student_inscription_form.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231">
-              <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="student_inscription_form_general.page.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular/app/pages/student_inscription/general/student_inscription_form_general.page.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -99,31 +104,61 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.384615">
+              <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bower.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bower.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5704698">
+              <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.components.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular/index.components.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
+              <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <file leaf-file-name="index.modules.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/index.modules.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
+              <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="student_inscription_form.component.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="student_inscription_form.component.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular/app/components/student_inscription_form/student_inscription_form.component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54662377">
+            <state vertical-scroll-proportion="0.0">
               <caret line="35" column="65" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/config/routes.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="71" column="28" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -140,7 +175,6 @@
         <option value="$PROJECT_DIR$/angular/app/pages/student_inscription/student_inscription_form1.page.html" />
         <option value="$PROJECT_DIR$/angular/app/pages/student_inscription/student_inscription_form2.page.html" />
         <option value="$PROJECT_DIR$/angular/app/components/wizzard/wizzard.component.js" />
-        <option value="$PROJECT_DIR$/angular/index.components.js" />
         <option value="$PROJECT_DIR$/angular/app/components/student_inscription/student_inscription.component.html" />
         <option value="$PROJECT_DIR$/angular/app/components/student_inscription/student_inscription.component.js" />
         <option value="$PROJECT_DIR$/angular/app/pages/student_inscription/student_inscription_step2.page.html" />
@@ -148,19 +182,22 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_08_25_204051_create_pays_table.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/database/migrations/2016_08_25_204828_create_ville_table.php" />
-        <option value="$PROJECT_DIR$/angular/index.modules.js" />
         <option value="$PROJECT_DIR$/angular/app/components/student_inscription_form/student_inscription_form.component.html" />
-        <option value="$PROJECT_DIR$/angular/config/routes.config.js" />
         <option value="$PROJECT_DIR$/angular/app/components/app-view/app-view.scss" />
         <option value="$PROJECT_DIR$/angular/app/components/app-view/app-view.component.html" />
         <option value="$PROJECT_DIR$/angular/app/components/student_inscription_form/student_inscription_form.scss" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/angular/app/pages/student_inscription/student_inscription.scss" />
         <option value="$PROJECT_DIR$/angular/app/pages/student_inscription/student_inscription.page.html" />
         <option value="$PROJECT_DIR$/angular/app/pages/student_inscription/general/student_inscription_form_general.page.html" />
         <option value="$PROJECT_DIR$/angular/app/pages/student_inscription/address/student_inscription_form_address.page.html" />
         <option value="$PROJECT_DIR$/angular/app/pages/student_inscription/bac/student_inscription_form_bac.page.html" />
         <option value="$PROJECT_DIR$/angular/app/components/student_inscription_form/student_inscription_form.component.js" />
+        <option value="$PROJECT_DIR$/angular/config/routes.config.js" />
+        <option value="$PROJECT_DIR$/angular/index.components.js" />
+        <option value="$PROJECT_DIR$/angular/index.modules.js" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/bower.json" />
+        <option value="$PROJECT_DIR$/public/service-worker.js" />
       </list>
     </option>
   </component>
@@ -225,6 +262,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="medecine-inscription-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medecine-inscription-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medecine-inscription-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -720,20 +771,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7718121">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular/index.main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34228188">
@@ -923,13 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular/config/routes.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/angular/app/components/app-view/app-view.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -988,33 +1018,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/angular/services/dialog.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular/index.components.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular/index.modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49196142">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1084,8 +1091,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/angular/app/components/student_inscription_form/student_inscription_form.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54662377">
+        <state vertical-scroll-proportion="0.0">
           <caret line="35" column="65" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/config/routes.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="28" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/index.components.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/index.modules.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.384615">
+          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/service-worker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24598071">
+          <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5704698">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
           <folding />
         </state>
       </provider>

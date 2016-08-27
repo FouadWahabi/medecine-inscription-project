@@ -4,23 +4,33 @@ namespace App\Helpers;
 
 use App\Models\Adress;
 use App\Models\Bac;
+use App\Models\Fonction;
 use App\Models\Student;
+use App\Models\Study;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class StudentServices
 {
 
     public function getAllStudents()
     {
-        return Student::with(['adress', 'bac'])->All();
+        return Student::with(['adress', 'adress.city', 'adress.city.country',
+            'bac', 'bac.type', 'bac.mention', 'fonction', 'fonction.adress',
+            'studies', 'studies.level', 'studies.result', 'studies.university'])->get();
     }
 
     public function getStudentById($student_id)
     {
-        return Student::with(['adress', 'bac'])->find($student_id);
+        return Student::with(['adress', 'adress.city', 'adress.city.country',
+            'bac', 'bac.type', 'bac.mention', 'fonction', 'fonction.adress',
+            'studies', 'studies.level', 'studies.result', 'studies.university'])->find($student_id);
     }
 
-    public function store($data)
+    public function store(Request $request)
     {
+        //try {
+        $data = $request->all();
         $student = new Student();
         $student->first_name = $data["first_name"];
         $student->last_name = $data["last_name"];
@@ -35,27 +45,75 @@ class StudentServices
         $student->study_access_year = $data["study_access_year"];
         $student->oriented = $data["oriented"];
         $student->origin_university = $data["origin_university"];
+        $student->id_city = $data["birthday_city"];
+        $student->confirmation_code = str_random(50);
+        $student->save();
 
         //adress
         $adress = new Adress();
         $adress->postal_code = $data["postal_code"];
         $adress->ligne1 = $data["label_adress"];
-        $adress->id_city = $data["id_city"];
+        $adress->id_city = $data["adress_city"];
+        $adress->id_student = $student->id_student;
         $adress->save();
-        $student->id_adress = $adress->id_adress;
 
         //bac
         $bac = new Bac();
         $bac->year = $data["bac_year"];
-        $bac->average = $data["average"];
-        $bac->school = $data["school"];
+        $bac->average = $data["bac_average"];
+        $bac->school = $data["bac_school"];
+        $bac->id_student = $student->id_student;
+        $bac->id_type = $data['bac_type'];
+        $bac->id_mention = $data['bac_mention'];
         $bac->save();
-        $student->id_bac = $bac->id_bac;
 
-        $student->id_doctaurat = 0;
-        $student->id_fonction = 0;
+        if ($request->has(['studies'])) {
+            foreach ($data["studies"] as $tmp) {
+                $study = new Study();
+                $study->year = $tmp['study_year'];
+                $study->id_student = $student->id_student;
+                $study->id_university = $tmp['study_university'];
+                $study->id_level = $tmp['study_level'];
+                $study->id_result = $tmp['study_resultat'];
+                $study->save();
+            }
+        }
+        //doctaurat
+        if ($request->has(['doctaurat'])) {
 
-        $student->save();
-        return $student->with(['adress', 'bac']);
+        }
+
+        //focntion
+        if ($request->has(['nature'])) {
+            $fonction = new Fonction();
+            $fonction->id_student = $student->id_student;
+            $fonction->nature = $data['nature'];
+            $fonction->employer = $data['employer'];
+            $fonction->date_of_inauguration = $data['date_of_inauguration'];
+            $fonction->save();
+
+            //fonction's adress
+            $adress = new Adress();
+            $adress->postal_code = $data["fonction_postal_code"];
+            $adress->ligne1 = $data["fonction_label_adress"];
+            $adress->id_city = $data["fonction_id_city"];
+            $adress->id_fonction = $fonction->id_fonction;
+            $adress->save();
+        }
+
+        //mail sending
+
+        $link = $request->root() . "/registration-api/student/" . $student->id_student . '/validate/' . $student->confirmation_code;
+        Mail::send('validationEmail', ['nom' => $student->first_name,
+            'prenom' => $student->last_name, 'CIN' => $student->cin,
+            'link' => $link], function ($message) use ($student) {
+            $message->to($student->mail)->subject('Validation de compte');
+        });
+
+        return $this->getStudentById($student->id_student);/*
+        } catch (QueryException $e) {
+            Log::info($e->getTraceAsString());
+            return null;
+        }*/
     }
 }

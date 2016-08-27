@@ -68,5 +68,34 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
                     templateUrl: getView('student_inscription')
                 }
             }
+        })
+        .state('app.home', {
+            url: '/home',
+            views: {
+                'main@': {
+                    templateUrl: getView('home')
+                }
+            }
+        })
+        .state('admin', {
+            abstract: true,
+            data: {},//{auth: true} would require JWT auth
+            views: {
+                header: {
+                    templateUrl: getView('header')
+                },
+                footer: {
+                    templateUrl: getView('footer')
+                },
+                main: {}
+            }
+        })
+        .state('admin.liststudent', {
+            url: '/admin/liststudent',
+            views: {
+                'main@': {
+                    templateUrl: './views/app/pages/admin/list-student/list-student.page.html'
+                }
+            }
         });
 }

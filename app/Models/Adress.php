@@ -15,13 +15,13 @@ class Adress extends Model
 {
     protected $table = 'Adress';
     protected $primaryKey = 'id_adress';
-    protected $fillable = ['ligne1', 'ligne2', 'postal_code', 'id_city','id_student','id_fonction'];
+    protected $fillable = ['ligne1', 'ligne2', 'postal_code', 'id_city', 'id_student', 'id_fonction'];
 
-    protected $hidden = ['id_city'];
+    protected $hidden = ['id_city', 'id_student', 'id_fonction'];
     public $timestamps = false;
 
     public function city()
     {
-        $this->belongsTo('App\Models\City', 'id_city');
+        return $this->belongsTo('App\Models\City', 'id_city');
     }
 }
