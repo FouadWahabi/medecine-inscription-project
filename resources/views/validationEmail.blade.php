@@ -4,14 +4,14 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <h2>Validation de Votre Inscrption dans ECOS</h2>
-    <p>Vous étes :</p>
-    <ul>
-      <li><strong>Nom</strong> : {{ $nom }}</li>
-      <li><strong>Prenom</strong> : {{ $prenom }}</li>
-      <li><strong>CIN</strong> : {{ $CIN }}</li>
-    </ul>
+  <img src="file:///C:/Users/S4M37/Desktop/logo.png" style="max-width:600px;" id="headerImage campaign-icon" />
+
+    <p>Bienvenue  {{ $nom }}.</p>
+    Nous vous envoyons cet e-mail pour vous demander de confirmer votre inscription à La faculté de medecine.
+
     <p>Pour confirmer veuillez activer votre compte avec ce lien : </p>
-    <p><u>{{$link}}</u></p>
+    <a href="{{$link}}">Confirmer Votre e-mail</a>
+    <br/>
+     merci.
   </body>
 </html>
