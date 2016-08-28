@@ -1,0 +1,52 @@
+<form form-step-validity name="studentInscriptionFormFonction">
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Nature</label>
+            <input ng-model="vm.studentForm.nature" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Employer</label>
+            <input type="text" ng-model="vm.studentForm.employer" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <h4>Inaugration date</h4>
+        <md-datepicker ng-model="vm.studentForm.date_of_inauguration" md-placeholder="Inaugration date"
+                       required></md-datepicker>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Fonction Poste code</label>
+            <input ng-model="vm.studentForm.fonction_postal_code" ng-pattern="/^[0-9]{4}$/" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Fonction Label Address</label>
+            <input type="text" ng-model="vm.studentForm.fonction_label_adress" required>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-select ng-model="vm.studentForm.fonction_id_city" placeholder="Fonction City" class="md-no-underline"
+                   required>
+            <md-option ng-repeat="city in vm.initData.cities" value={{city.id_city}}>{{ city.label }}</md-option>
+        </md-select>
+    </div>
+
+    <div layout="row" layout-xs="column">
+        <md-button class="StudentForm-previous md-primary md-raised" ng-click="$previousStep()" flex>Previous
+        </md-button>
+        <md-button class="StudentForm-next md-primary md-raised"
+                   ng-click="$nextStep()" flex>Next
+        </md-button>
+    </div>
+
+</form>

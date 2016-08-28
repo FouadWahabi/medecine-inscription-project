@@ -18,8 +18,5 @@ class ResultSeed extends Seeder
         DB::table('Result')->insert([
             'label' => 'admis'
         ]);
-        DB::table('Result')->insert([
-            'label' => 'redoublant'
-        ]);
     }
 }

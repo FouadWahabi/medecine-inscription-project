@@ -21,7 +21,7 @@ class CreateVilleTable extends Migration
             $t->integer("id_country")->unsigned();
             $t->foreign("id_country")
                 ->references("id_country")
-                ->on("country")
+                ->on("Country")
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
         });

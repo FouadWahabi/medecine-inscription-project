@@ -27,16 +27,16 @@ export class APIService {
                         headers.Authorization = 'Bearer ' + token;
                     }
                 }).addResponseInterceptor(function (data, operation, what, url, response, deferred) {
-                var extractedData;
-                // .. to look for getList operations
-                if (operation === "getList") {
-                    // .. and handle the data and meta data
-                    extractedData = response.response;
-                } else {
-                    extractedData = data.data;
-                }
-                return extractedData;
-            });
+                    var extractedData;
+                    // .. to look for getList operations
+                    if (operation === "getList") {
+                        // .. and handle the data and meta data
+                        extractedData = response.data;
+                    } else {
+                        extractedData = data;
+                    }
+                    return extractedData;
+                });
         });
     }
 }

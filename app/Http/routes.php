@@ -53,4 +53,6 @@ $api->group(['prefix' => 'student'], function ($api) {
     $api->match(['get', 'post'], '/{student_id}', 'StudentController@getStudent')->where('student_id', '[0-9]+');
     // /api/student/create
     $api->post('/create', 'StudentController@add');
+    // get registration init data
+    $api->get('/create', 'StudentController@init');
 });

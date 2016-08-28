@@ -5,26 +5,40 @@ namespace App\Helpers;
 use App\Models\Adress;
 use App\Models\Bac;
 use App\Models\Fonction;
+use App\Models\Mention;
+use App\Models\Result;
 use App\Models\Student;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\Level;
 use App\Models\Study;
+use App\Models\Type;
+use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class StudentServices
 {
 
+    public function init()
+    {
+        $init_data = array(
+            "cities" => City::all(),
+            "countries" => Country::all(),
+            "levels" => Level::all(),
+            "mentions" => Mention::all(),
+            "results" => Result::all(),
+            "bactypes" => Type::all(),
+            "universities" => University::all()
+        );
+        return json_encode($init_data);
+    }
+
     public function getAllStudents()
     {
         return Student::with(['adress', 'adress.city', 'adress.city.country',
             'bac', 'bac.type', 'bac.mention', 'fonction', 'fonction.adress',
             'studies', 'studies.level', 'studies.result', 'studies.university'])->get();
-    }
-
-    public function getStudentById($student_id)
-    {
-        return Student::with(['adress', 'adress.city', 'adress.city.country',
-            'bac', 'bac.type', 'bac.mention', 'fonction', 'fonction.adress',
-            'studies', 'studies.level', 'studies.result', 'studies.university'])->find($student_id);
     }
 
     public function store(Request $request)
@@ -41,7 +55,7 @@ class StudentServices
         $student->passport = $data["passport"];
         $student->phone = $data["phone"];
         $student->mobile = $data["mobile"];
-        $student->mail = $data["mail"];
+        $student->email = $data["mail"];
         $student->study_access_year = $data["study_access_year"];
         $student->oriented = $data["oriented"];
         $student->origin_university = $data["origin_university"];
@@ -52,8 +66,8 @@ class StudentServices
         //adress
         $adress = new Adress();
         $adress->postal_code = $data["postal_code"];
-        $adress->ligne1 = $data["label_adress"];
-        $adress->id_city = $data["adress_city"];
+        $adress->ligne1 = $data["label_address"];
+        $adress->id_city = $data["address_city"];
         $adress->id_student = $student->id_student;
         $adress->save();
 
@@ -74,7 +88,7 @@ class StudentServices
                 $study->id_student = $student->id_student;
                 $study->id_university = $tmp['study_university'];
                 $study->id_level = $tmp['study_level'];
-                $study->id_result = $tmp['study_resultat'];
+                $study->id_result = $tmp['study_result'];
                 $study->save();
             }
         }
@@ -103,7 +117,7 @@ class StudentServices
 
         //mail sending
 
-        $link = $request->root() . "/registration-api/student/" . $student->id_student . '/validate/' . $student->confirmation_code;
+        $link = $request->root() . "/api/student/" . $student->id_student . '/validate/' . $student->confirmation_code;
         Mail::send('validationEmail', ['nom' => $student->first_name,
             'prenom' => $student->last_name, 'CIN' => $student->cin,
             'link' => $link], function ($message) use ($student) {
@@ -115,5 +129,12 @@ class StudentServices
             Log::info($e->getTraceAsString());
             return null;
         }*/
+    }
+
+    public function getStudentById($student_id)
+    {
+        return Student::with(['adress', 'adress.city', 'adress.city.country',
+            'bac', 'bac.type', 'bac.mention', 'fonction', 'fonction.adress',
+            'studies', 'studies.level', 'studies.result', 'studies.university'])->find($student_id);
     }
 }

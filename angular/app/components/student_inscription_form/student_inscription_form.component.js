@@ -10,6 +10,15 @@ class StudentInscriptionFormController {
     $onInit() {
         this.studentForm = {};
 
+        this.initData = {};
+
+        this.studentForm.studies = [{
+            study_year: "",
+            study_university: "",
+            study_level: "",
+            study_resultat: ""
+        }];
+
         this.$scope.steps = [
             {
                 templateUrl: './views/app/pages/student_inscription/general/student_inscription_form_general.page.html',
@@ -25,19 +34,44 @@ class StudentInscriptionFormController {
                 templateUrl: './views/app/pages/student_inscription/bac/student_inscription_form_bac.page.html',
                 title: 'Bac',
                 hasForm: true
+            },
+            {
+                templateUrl: './views/app/pages/student_inscription/fonction/student_inscription_form_fonction.page.html',
+                title: 'fonction',
+                hasForm: true
+            },
+            {
+                templateUrl: './views/app/pages/student_inscription/study/student_inscription_form_study.page.html',
+                title: 'Study',
+                hasForm: true
             }
         ];
+
+        // initialize init data
+        this.API.one('student/create').get().then((data) => {
+            this.initData = data;
+        });
 
     }
 
     register() {
-        var newStudent = this.API.all('student/create');
-
-        newStudent.post('student', this.studentForm).then(() => {
-            this.isValidToken = true;
-        }, () => {
+        this.API.all('student/create').post(this.studentForm).then(() => {
+            this.ToastService.show(`Thanks for registering`);
             this.$state.go('app.landing');
         });
+    }
+
+    addStudy() {
+        this.studentForm.studies.push({
+            study_year: "",
+            study_university: "",
+            study_level: "",
+            study_resultat: ""
+        });
+    }
+
+    removeStudy() {
+        this.studentForm.studies.splice(this.studentForm.studies.length - 1, 1);
     }
 }
 

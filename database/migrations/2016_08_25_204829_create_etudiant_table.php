@@ -56,7 +56,7 @@ class CreateEtudiantTable extends Migration
      */
     public function down()
     {
-        Schema::table("Bac", function (Blueprint $t) {
+        Schema::table("Student", function (Blueprint $t) {
             $t->dropForeign(['id_city']);
         });
         Schema::drop("Student");

@@ -19,9 +19,6 @@ class TypeSeed extends Seeder
             'label' => 'Math'
         ]);
         DB::table('Type')->insert([
-            'label' => 'Sc exp'
-        ]);
-        DB::table('Type')->insert([
             'label' => 'Technique'
         ]);
         DB::table('Type')->insert([

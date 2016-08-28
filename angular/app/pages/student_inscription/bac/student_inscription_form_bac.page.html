@@ -10,22 +10,35 @@
     <div>
         <md-input-container class="StudentForm-inputContainer">
             <label>Average</label>
-            <input type="text" ng-model="vm.studentForm.average" required>
+            <input type="text" ng-model="vm.studentForm.bac_average" required>
         </md-input-container>
     </div>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
             <label>School</label>
-            <input type="text" ng-model="vm.studentForm.school" required>
+            <input type="text" ng-model="vm.studentForm.bac_school" required>
         </md-input-container>
+    </div>
+
+    <div>
+        <md-select ng-model="vm.studentForm.bac_type" placeholder="Bac type" class="md-no-underline" required>
+            <md-option ng-repeat="type in vm.initData.bactypes" value={{type.id_type}}>{{ type.label }}</md-option>
+        </md-select>
+    </div>
+
+    <div>
+        <md-select ng-model="vm.studentForm.bac_mention" placeholder="Bac mention" class="md-no-underline" required>
+            <md-option ng-repeat="mention in vm.initData.mentions" value={{mention.id_mention}}>{{ mention.label }}</md-option>
+        </md-select>
     </div>
 
     <div layout="row" layout-xs="column">
         <md-button class="StudentForm-previous md-primary md-raised" ng-click="$previousStep()" flex>Previous
         </md-button>
-        <md-button class="StudentForm-submit md-primary md-raised" type="submit"
-                   ng-disabled="studentInscriptionFormBac.$invalid" flex>Submit
+        <md-button class="StudentForm-next md-primary md-raised"
+                   ng-disabled="studentInscriptionForBac.$invalid"
+                   ng-click="$nextStep()" flex>Next
         </md-button>
     </div>
 

@@ -34,6 +34,12 @@
     </div>
 
     <div>
+        <md-select ng-model="vm.studentForm.birthday_city" placeholder="Birthday City" class="md-no-underline" required>
+            <md-option ng-repeat="city in vm.initData.cities" value={{city.id_city}}>{{ city.label }}</md-option>
+        </md-select>
+    </div>
+
+    <div>
         <md-input-container class="StudentForm-inputContainer">
             <label>CIN</label>
             <input ng-model="vm.studentForm.cin" ng-pattern="/^[0-9]{8}$/" required>

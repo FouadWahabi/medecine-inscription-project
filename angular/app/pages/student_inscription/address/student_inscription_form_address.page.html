@@ -10,15 +10,13 @@
     <div>
         <md-input-container class="StudentForm-inputContainer">
             <label>Label Address</label>
-            <input type="text" ng-model="vm.studentForm.label_adress" required>
+            <input type="text" ng-model="vm.studentForm.label_address" required>
         </md-input-container>
     </div>
 
     <div>
-        <md-select ng-model="vm.studentForm.id_city" placeholder="City" class="md-no-underline" required>
-            <md-option value="Munich">Munich</md-option>
-            <md-option value="Paris">Paris</md-option>
-            <md-option value="Marseille">Marseille</md-option>
+        <md-select ng-model="vm.studentForm.address_city" placeholder="City" class="md-no-underline" required>
+            <md-option ng-repeat="city in vm.initData.cities" value={{city.id_city}}>{{ city.label }}</md-option>
         </md-select>
     </div>
 

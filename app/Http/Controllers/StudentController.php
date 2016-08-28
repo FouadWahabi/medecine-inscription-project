@@ -33,16 +33,21 @@ class StudentController extends Controller
     {
         if (!$request->has([
             'last_name', 'first_name', 'second_name', 'sex', 'birthday', 'birthday_city', 'cin', 'passport',
-            'phone', 'mobile', 'mail', 'study_access_year', 'oriented', 'postal_code', 'label_adress',
-            'adress_city', 'bac_year', 'bac_average', 'bac_school', 'bac_mention', 'bac_type'])
+            'phone', 'mobile', 'mail', 'study_access_year', 'oriented', 'postal_code', 'label_address',
+            'address_city', 'bac_year', 'bac_average', 'bac_school', 'bac_mention', 'bac_type'])
         ) {
-            return response()->json(['response' => 'invalid inputs'], 400);
+            return response()->json(['response' => 'shit'], 400);
         }
         $student = $this->studentServices->store($request);
         if ($student == null) {
             return response()->json(['response' => 'invalid inputs'], 400);
         }
         return response()->json(['response' => $student], 200);
+    }
+
+    function init()
+    {
+        return $this->studentServices->init();
     }
 
     function validateStudentCompte($student_id = null, $token = null)
