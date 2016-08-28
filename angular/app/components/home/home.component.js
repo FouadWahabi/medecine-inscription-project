@@ -9,7 +9,7 @@ class HomeController {
         this.ToastService = ToastService;
         this.$location = $location;
         this.API = API;
-        this.user = JSON.parse(localStorage.getItem('user', {}));
+        this.user = JSON.parse(localStorage.getItem('user'));
     }
 
     $onInit() {

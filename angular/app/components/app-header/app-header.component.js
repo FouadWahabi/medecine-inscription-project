@@ -21,7 +21,7 @@ class AppHeaderController {
         console.log("Hello");
         this.$auth.logout();
         this.$rootScope.isAuthenticated = this.$auth.isAuthenticated();
-        localStorage.setItem("user",{});
+        localStorage.removeItem("user");
         this.$location.url("/login");
 
 
