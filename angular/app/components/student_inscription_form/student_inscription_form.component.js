@@ -1,9 +1,10 @@
 class StudentInscriptionFormController {
-    constructor(API, $scope, $state) {
+    constructor(API, $scope, $state, ToastService) {
         'ngInject';
         this.API = API;
         this.$scope = $scope;
         this.$state = $state;
+        this.ToastService = ToastService;
         //
     }
 
@@ -71,7 +72,9 @@ class StudentInscriptionFormController {
     }
 
     removeStudy() {
-        this.studentForm.studies.splice(this.studentForm.studies.length - 1, 1);
+        if (this.studentForm.studies.length > 1) {
+            this.studentForm.studies.splice(this.studentForm.studies.length - 1, 1);
+        }
     }
 }
 

@@ -1,3 +1,5 @@
+<h1 class="md-headline">Bac</h1>
+
 <form form-step-validity name="studentInscriptionFormBac">
 
     <div>
@@ -29,7 +31,8 @@
 
     <div>
         <md-select ng-model="vm.studentForm.bac_mention" placeholder="Bac mention" class="md-no-underline" required>
-            <md-option ng-repeat="mention in vm.initData.mentions" value={{mention.id_mention}}>{{ mention.label }}</md-option>
+            <md-option ng-repeat="mention in vm.initData.mentions" value={{mention.id_mention}}>{{ mention.label }}
+            </md-option>
         </md-select>
     </div>
 
@@ -37,7 +40,7 @@
         <md-button class="StudentForm-previous md-primary md-raised" ng-click="$previousStep()" flex>Previous
         </md-button>
         <md-button class="StudentForm-next md-primary md-raised"
-                   ng-disabled="studentInscriptionForBac.$invalid"
+                   ng-disabled="studentInscriptionFormBac.$invalid"
                    ng-click="$nextStep()" flex>Next
         </md-button>
     </div>
