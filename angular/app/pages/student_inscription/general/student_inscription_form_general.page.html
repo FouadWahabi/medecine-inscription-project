@@ -47,7 +47,7 @@
 
         <md-select ng-disabled="studentInscriptionFormGeneral.birthday_country.$invalid"
                    ng-model="vm.studentForm.birthday_city" placeholder="Birthday City" class="md-no-underline" required>
-            <md-option ng-repeat="civm.birthday_country)" value={{city.id_city}}>{{ city.label
+            <md-option ng-repeat="city in vm.getCities(vm.birthday_country)" value={{city.id_city}}>{{ city.label
                 }}
             </md-option>
         </md-select>

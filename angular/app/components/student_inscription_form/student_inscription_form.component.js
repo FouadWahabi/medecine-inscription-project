@@ -51,6 +51,11 @@ class StudentInscriptionFormController {
                 templateUrl: './views/app/pages/student_inscription/study/student_inscription_form_study.page.html',
                 title: 'Study',
                 hasForm: true
+            },
+            {
+                templateUrl: './views/app/pages/student_inscription/doctaurat/student_inscription_form_doctaurat.page.html',
+                title: 'Doctaurat',
+                hasForm: true
             }
         ];
 
