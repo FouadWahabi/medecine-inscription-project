@@ -36,12 +36,7 @@ class LoginFormController {
     }
 
     failedLogin(response) {
-        if (response.status === 422) {
-            for (let error in response.data.errors) {
-                return this.ToastService.error(response.data.errors[error][0]);
-            }
-        }
-        this.ToastService.error(response);
+        this.ToastService.error(response.data.errors.message[0]);
     }
 }
 
