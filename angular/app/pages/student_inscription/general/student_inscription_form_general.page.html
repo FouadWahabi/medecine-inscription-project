@@ -36,8 +36,20 @@
     </div>
 
     <div>
-        <md-select ng-model="vm.studentForm.birthday_city" placeholder="Birthday City" class="md-no-underline" required>
-            <md-option ng-repeat="city in vm.initData.cities" value={{city.id_city}}>{{ city.label }}</md-option>
+        <h4>Birthday City</h4>
+
+        <md-select name="birthday_country" ng-model="vm.birthday_country" placeholder="Birthday Country"
+                   class="md-no-underline" required>
+            <md-option ng-repeat="country in vm.initData.countries" value={{country.id_country}}>{{ country.label
+                }}
+            </md-option>
+        </md-select>
+
+        <md-select ng-disabled="studentInscriptionFormGeneral.birthday_country.$invalid"
+                   ng-model="vm.studentForm.birthday_city" placeholder="Birthday City" class="md-no-underline" required>
+            <md-option ng-repeat="city in vm.getCities(vm.birthday_country)" value={{city.id_city}}>{{ city.label
+                }}
+            </md-option>
         </md-select>
     </div>
 

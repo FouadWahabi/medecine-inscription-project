@@ -76,10 +76,12 @@ class StudentController extends Controller
         $data = $request->all()['img'];
         $chemin = 'uploads';
         do {
-            $nom = str_random(10) . '.png';
+            $nom = str_random(10);
         } while (file_exists($chemin . '/' . $nom));
 
-        $this->utils->base64_to_jpeg($data, $chemin . '/' . $nom);
+        $path = public_path($chemin . '/' . $nom);
+
+        $this->utils->base64_to_jpeg($data, $path);
 
         $student->img = $request->root() . '/' . $chemin . '/' . $nom;
 

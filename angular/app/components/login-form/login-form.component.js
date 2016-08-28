@@ -1,16 +1,17 @@
 class LoginFormController {
-    constructor($auth, ToastService, $location, $rootScope) {
+    constructor($auth, ToastService, $location, $rootScope, $state) {
         'ngInject';
 
         this.$auth = $auth;
         this.ToastService = ToastService;
         this.$location = $location;
         this.$rootScope = $rootScope;
+        this.$state = $state;
     }
 
     $onInit() {
         if (this.$auth.isAuthenticated()) {
-            this.$location.url("/home");
+            this.$state.go('app.home');
             return;
         }
         this.email = '';
@@ -29,7 +30,7 @@ class LoginFormController {
                 this.ToastService.show('Logged in successfully.');
                 this.$rootScope.isAuthenticated = true;
                 localStorage.setItem("user", JSON.stringify(response.data.data.student));
-                this.$location.path("/home");
+                this.$state.go('app.home');
             })
             .catch(this.failedLogin.bind(this));
     }
@@ -40,7 +41,7 @@ class LoginFormController {
                 return this.ToastService.error(response.data.errors[error][0]);
             }
         }
-        this.ToastService.error(response.statusText);
+        this.ToastService.error(response);
     }
 }
 

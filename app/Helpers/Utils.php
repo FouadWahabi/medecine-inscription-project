@@ -9,8 +9,7 @@ class Utils
     {
         $ifp = fopen($output_file, "wb");
         // $data = explode(',', $base64_string);
-        $data = $base64_string;
-        fwrite($ifp, base64_decode($data));
+        fwrite($ifp, base64_decode($base64_string));
         fclose($ifp);
 
         return $output_file;

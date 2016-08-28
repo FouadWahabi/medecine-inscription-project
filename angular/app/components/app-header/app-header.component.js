@@ -1,30 +1,23 @@
 class AppHeaderController {
-    constructor($sce, $auth, $location, $rootScope) {
+    constructor($sce, $auth, $location, $rootScope, $state) {
         'ngInject';
 
         this.$sce = $sce;
         this.$auth = $auth;
         this.$location = $location;
         this.$rootScope = $rootScope;
-
+        this.$state = $state;
     }
 
     $onInit() {
-        //defer iframe loading
         this.$rootScope.isAuthenticated = this.$auth.isAuthenticated();
-        console.log(this.$rootScope.isAuthenticated);
-
     }
 
-
     logout() {
-        console.log("Hello");
         this.$auth.logout();
         this.$rootScope.isAuthenticated = this.$auth.isAuthenticated();
-        localStorage.setItem("user",{});
-        this.$location.url("/login");
-
-
+        localStorage.removeItem("user");
+        this.$state.go('app.login');
     }
 }
 

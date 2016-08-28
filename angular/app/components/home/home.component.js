@@ -2,47 +2,43 @@
  * Created by Abbes on 27/08/2016.
  */
 class HomeController {
-    constructor($auth, ToastService, $location, API) {
+    constructor($auth, ToastService, $location, API, $state) {
         'ngInject';
 
         this.$auth = $auth;
         this.ToastService = ToastService;
         this.$location = $location;
         this.API = API;
+        console.log(localStorage.getItem('user', {}))
         this.user = JSON.parse(localStorage.getItem('user', {}));
+        this.$state = $state;
     }
 
     $onInit() {
         if (!this.$auth.isAuthenticated()) {
-            this.$location.url('/login');
+            console.log('Not auth')
+            this.$state.go('app.login');
         }
     }
 
     fileSelected(element) {
-        var myFileSelected = element.files[0];
-        console.log(myFileSelected);
+        this.myUpload = element.files[0];
     }
 
     onFileSelect(files) {
         console.info('files', files[0]);
     }
 
-    uploadPhoto(data) {
-        console.log(data);
-        console.log(this.myUpload);
-        console.log(this.user);
-
+    uploadPhoto() {
         let params = {
-            img: data.base64
+            img: this.myPhoto.base64
         };
-        this.API.all("student/" + this.user + "/upload-photo").post(params)
-            .then(()=> {
+        this.API.all("student/" + this.user.id_student + "/upload-photo").post(params)
+            .then((res)=> {
+                this.user.img = res.response;
                 this.ToastService.show("Image Added success");
             });
-
     }
-
-
 }
 
 export const HomeComponent = {

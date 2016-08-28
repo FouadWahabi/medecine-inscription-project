@@ -16,11 +16,10 @@ class AuthController extends Controller
     public function login(Request $request)
     {
 
-
         $credentials = $request->only('email', 'password');
         $student = Student::whereEmail($request->input("email"))->get()->first();
         if ($student->valid == 0) {
-            return response()->error('invalid_user', 500);
+         //   return response()->error('invalid_user', 500);
         }
         try {
             // verify the credentials and create a token for the user

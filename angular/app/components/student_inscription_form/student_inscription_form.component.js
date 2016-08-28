@@ -1,6 +1,7 @@
 class StudentInscriptionFormController {
-    constructor(API, $scope, $state, ToastService) {
+    constructor($auth, API, $scope, $state, ToastService) {
         'ngInject';
+        this.$auth = $auth;
         this.API = API;
         this.$scope = $scope;
         this.$state = $state;
@@ -9,6 +10,11 @@ class StudentInscriptionFormController {
     }
 
     $onInit() {
+
+        if (this.$auth.isAuthenticated()) {
+            this.$state.go('app.home');
+        }
+
         this.studentForm = {};
 
         this.initData = {};
@@ -76,6 +82,15 @@ class StudentInscriptionFormController {
             this.studentForm.studies.splice(this.studentForm.studies.length - 1, 1);
         }
     }
+
+    getCities(id_country) {
+        if (this.initData.cities) {
+            return this.initData.cities[id_country];
+        } else {
+            return [];
+        }
+    }
+
 }
 
 export const StudentInscriptionFormComponent = {

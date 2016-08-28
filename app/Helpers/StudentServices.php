@@ -23,7 +23,7 @@ class StudentServices
     public function init()
     {
         $init_data = array(
-            "cities" => City::all(),
+            "cities" => City::all()->groupBy('id_country'),
             "countries" => Country::all(),
             "levels" => Level::all(),
             "mentions" => Mention::all(),
@@ -117,12 +117,12 @@ class StudentServices
 
         //mail sending
 
-        $link = $request->root() . "/api/student/" . $student->id_student . '/validate/' . $student->confirmation_code;
+ /*       $link = $request->root() . "/api/student/" . $student->id_student . '/validate/' . $student->confirmation_code;
         Mail::send('validationEmail', ['nom' => $student->first_name,
             'prenom' => $student->last_name, 'CIN' => $student->cin,
             'link' => $link], function ($message) use ($student) {
             $message->to($student->mail)->subject('Validation de compte');
-        });
+        });  */
 
         return $this->getStudentById($student->id_student);/*
         } catch (QueryException $e) {

@@ -17,8 +17,20 @@
     </div>
 
     <div>
-        <md-select ng-model="vm.studentForm.address_city" placeholder="City" class="md-no-underline" required>
-            <md-option ng-repeat="city in vm.initData.cities" value={{city.id_city}}>{{ city.label }}</md-option>
+        <h4>Address City</h4>
+
+        <md-select name="address_country" ng-model="vm.address_country" placeholder="Address Country"
+                   class="md-no-underline" required>
+            <md-option ng-repeat="country in vm.initData.countries" value={{country.id_country}}>{{ country.label
+                }}
+            </md-option>
+        </md-select>
+
+        <md-select ng-disabled="studentInscriptionFormAddress.address_country.$invalid"
+                   ng-model="vm.studentForm.address_city" placeholder="Birthday City" class="md-no-underline" required>
+            <md-option ng-repeat="city in vm.getCities(vm.address_country)" value={{city.id_city}}>{{ city.label
+                }}
+            </md-option>
         </md-select>
     </div>
 

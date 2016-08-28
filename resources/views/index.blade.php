@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <title>Laravel Angular Material Starter</title>
 
     <meta name="theme-color" content="#0690B7">
@@ -14,32 +14,32 @@
     <script type="text/javascript">document.location.href = '/unsupported-browser'</script>
     <![endif]-->
 
-    <style><?php require( public_path( "css/critical.css" ) ) ?></style>
-    
+    <style><?php require(public_path("css/critical.css")) ?></style>
+
 </head>
 <body>
 
-    <app-shell>
-        <div id="app-shell-header">
-            <img src="img/icons/logo.svg" width="171" height="41">
-        </div>
-        <div id="app-shell-content"></div>
-    </app-shell>
+<app-shell>
+    <div id="app-shell-header">
+        <img src="img/icons/logo.svg" width="171" height="41">
+    </div>
+    <div id="app-shell-content"></div>
+</app-shell>
 
-    <app-view></app-view>
+<app-view></app-view>
 
 
-    <script>
-    (function(){
+<script>
+    (function () {
         var link = document.createElement("link");
         link.href = "{!! elixir('css/final.css') !!}";
         link.type = "text/css";
         link.rel = "stylesheet";
         document.body.appendChild(link);
     })();
-    </script>
+</script>
 
-    <script src="{!! elixir('js/final.js') !!}" async defer></script>
+<script src="{!! elixir('js/final.js') !!}" async defer></script>
 
 </body>
 </html>
