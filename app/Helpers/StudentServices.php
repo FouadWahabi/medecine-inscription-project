@@ -4,13 +4,14 @@ namespace App\Helpers;
 
 use App\Models\Adress;
 use App\Models\Bac;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\Doctaurat;
 use App\Models\Fonction;
+use App\Models\Level;
 use App\Models\Mention;
 use App\Models\Result;
 use App\Models\Student;
-use App\Models\City;
-use App\Models\Country;
-use App\Models\Level;
 use App\Models\Study;
 use App\Models\Type;
 use App\Models\University;
@@ -38,13 +39,19 @@ class StudentServices
     {
         return Student::with(['adress', 'adress.city', 'adress.city.country',
             'bac', 'bac.type', 'bac.mention', 'fonction', 'fonction.adress',
-            'studies', 'studies.level', 'studies.result', 'studies.university'])->get();
+            'studies', 'studies.level', 'studies.result', 'studies.university',
+            'doctaurat', 'doctaurat.mention', 'doctaurat.university'])->get();
     }
 
     public function store(Request $request)
     {
-        //try {
         $data = $request->all();
+        $student = Student::whereEmail($data["email"])->first();
+        if ($student != null) {
+            return 1;
+        }
+        //try {
+
         $student = new Student();
         $student->first_name = $data["first_name"];
         $student->last_name = $data["last_name"];
@@ -55,7 +62,7 @@ class StudentServices
         $student->passport = $data["passport"];
         $student->phone = $data["phone"];
         $student->mobile = $data["mobile"];
-        $student->email = $data["mail"];
+        $student->email = $data["email"];
         $student->study_access_year = $data["study_access_year"];
         $student->oriented = $data["oriented"];
         $student->origin_university = $data["origin_university"];
@@ -93,8 +100,14 @@ class StudentServices
             }
         }
         //doctaurat
-        if ($request->has(['doctaurat'])) {
-
+        if ($request->has(['doctaurat_numero'])) {
+            $doctaurat = new Doctaurat();
+            $doctaurat->numero = $data['doctaurat_numero'];
+            $doctaurat->date_of_pitch = $data['doctaurat_date_of_pitch'];
+            $doctaurat->id_university = $data['doctaurat_id_university'];
+            $doctaurat->id_mention = $data['doctaurat_id_mention'];
+            $doctaurat->id_student = $student->id_student;
+            $doctaurat->save();
         }
 
         //focntion
@@ -117,24 +130,24 @@ class StudentServices
 
         //mail sending
 
- /*       $link = $request->root() . "/api/student/" . $student->id_student . '/validate/' . $student->confirmation_code;
+        $link = $request->root() . "/api/student/" . $student->id_student . '/validate/' . $student->confirmation_code;
         Mail::send('validationEmail', ['nom' => $student->first_name,
             'prenom' => $student->last_name, 'CIN' => $student->cin,
             'link' => $link], function ($message) use ($student) {
-            $message->to($student->mail)->subject('Validation de compte');
-        });  */
+            $message->to($student->email)->subject('Validation de compte');
+        });
 
         return $this->getStudentById($student->id_student);/*
-        } catch (QueryException $e) {
-            Log::info($e->getTraceAsString());
-            return null;
-        }*/
+               } catch (QueryException $e) {
+                   Log::info($e->getTraceAsString());
+                   return null;
+               }*/
     }
 
     public function getStudentById($student_id)
     {
         return Student::with(['adress', 'adress.city', 'adress.city.country',
             'bac', 'bac.type', 'bac.mention', 'fonction', 'fonction.adress',
-            'studies', 'studies.level', 'studies.result', 'studies.university'])->find($student_id);
+            'studies', 'studies.level', 'studies.result', 'studies.university', 'doctaurat', 'doctaurat.mention', 'doctaurat.university'])->find($student_id);
     }
 }

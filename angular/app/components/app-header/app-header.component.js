@@ -18,6 +18,7 @@ class AppHeaderController {
         this.$rootScope.isAuthenticated = this.$auth.isAuthenticated();
         localStorage.removeItem("user");
         this.$state.go('app.login');
+
     }
 }
 

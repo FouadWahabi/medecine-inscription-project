@@ -33,14 +33,19 @@ class StudentController extends Controller
     {
         if (!$request->has([
             'last_name', 'first_name', 'second_name', 'sex', 'birthday', 'birthday_city', 'cin', 'passport',
-            'phone', 'mobile', 'mail', 'study_access_year', 'oriented', 'postal_code', 'label_address',
+            'phone', 'mobile', 'email', 'study_access_year', 'oriented', 'postal_code', 'label_address',
             'address_city', 'bac_year', 'bac_average', 'bac_school', 'bac_mention', 'bac_type'])
         ) {
-            return response()->json(['response' => 'shit'], 400);
+            return response()->json(['response' => 'Invalid Input'], 400);
         }
         $student = $this->studentServices->store($request);
         if ($student == null) {
-            return response()->json(['response' => 'invalid inputs'], 400);
+            return response()->json(['response' => 'Invalid Input'], 400);
+        }
+        if (is_int($student)) {
+            if ($student == 1) {
+                return response()->json(['response' => 'Compte exist déja'], 400);
+            }
         }
         return response()->json(['response' => $student], 200);
     }

@@ -1,4 +1,4 @@
-<h1 class="md-headline">Fonction</h1>
+<h1 class="md-headline">Fonction (n'est pas obligatoire)</h1>
 
 <form form-step-validity name="studentInscriptionFormFonction">
 
@@ -17,21 +17,24 @@
     </div>
 
     <div>
-        <h4>Inaugration date</h4>
+        <h4>Date de prise de fonction</h4>
         <md-datepicker ng-model="vm.studentForm.date_of_inauguration" md-placeholder="Inaugration date"
                        required></md-datepicker>
     </div>
 
     <div>
+        <h4>Adresse professionnelle</h4>
+    </div>
+    <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Fonction Poste code</label>
+            <label>Code postal</label>
             <input ng-model="vm.studentForm.fonction_postal_code" ng-pattern="/^[0-9]{4}$/" required>
         </md-input-container>
     </div>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Fonction Label Address</label>
+            <label>Adresse</label>
             <input type="text" ng-model="vm.studentForm.fonction_label_adress" required>
         </md-input-container>
     </div>

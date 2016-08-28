@@ -9,9 +9,8 @@ class HomeController {
         this.ToastService = ToastService;
         this.$location = $location;
         this.API = API;
-        console.log(localStorage.getItem('user', {}))
-        this.user = JSON.parse(localStorage.getItem('user', {}));
         this.$state = $state;
+        this.user = JSON.parse(localStorage.getItem('user'));
     }
 
     $onInit() {
