@@ -43,8 +43,13 @@ class StudentServices
 
     public function store(Request $request)
     {
-        //try {
         $data = $request->all();
+        $student = Student::whereEmail($data["email"])->first();
+        if ($student != null) {
+            return 1;
+        }
+        //try {
+
         $student = new Student();
         $student->first_name = $data["first_name"];
         $student->last_name = $data["last_name"];
@@ -55,7 +60,7 @@ class StudentServices
         $student->passport = $data["passport"];
         $student->phone = $data["phone"];
         $student->mobile = $data["mobile"];
-        $student->email = $data["mail"];
+        $student->email = $data["email"];
         $student->study_access_year = $data["study_access_year"];
         $student->oriented = $data["oriented"];
         $student->origin_university = $data["origin_university"];

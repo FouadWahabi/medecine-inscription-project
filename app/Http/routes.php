@@ -38,6 +38,8 @@ $api->group(['middleware' => ['api']], function ($api) {
         $api->match(['get', 'post'], '/{student_id}', 'StudentController@getStudent')->where('student_id', '[0-9]+');
         $api->match(['get', 'post'], '/{student_id}/validate/{token}', 'StudentController@validateStudentCompte')->where('student_id', '[0-9]+');
         $api->post('/{student_id}/upload-photo', 'StudentController@uploadPhoto')->where('student_id', '[0-9]+');
+        // /api/student/create
+        $api->post('/create', 'StudentController@add');
     });
 });
 
@@ -51,8 +53,7 @@ $api->group(['prefix' => 'student'], function ($api) {
     $api->match(['get', 'post'], '/', 'StudentController@getStudent');
     // /api/student/{student_id}
     $api->match(['get', 'post'], '/{student_id}', 'StudentController@getStudent')->where('student_id', '[0-9]+');
-    // /api/student/create
-    $api->post('/create', 'StudentController@add');
+
     // get registration init data
     $api->get('/create', 'StudentController@init');
 });

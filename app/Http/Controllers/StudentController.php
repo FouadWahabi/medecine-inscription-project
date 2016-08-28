@@ -40,7 +40,10 @@ class StudentController extends Controller
         }
         $student = $this->studentServices->store($request);
         if ($student == null) {
-            return response()->json(['response' => 'invalid inputs'], 400);
+            return response()->json(['response' => 'Invalid Input'], 400);
+        }
+        if ($student == 1) {
+            return response()->json(['response' => 'Compte exist déja'], 400);
         }
         return response()->json(['response' => $student], 200);
     }
