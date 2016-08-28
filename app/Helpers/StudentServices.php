@@ -68,6 +68,8 @@ class StudentServices
         $student->origin_university = $data["origin_university"];
         $student->id_city = $data["birthday_city"];
         $student->confirmation_code = str_random(50);
+        $password = str_random(8);
+        $student->password = bcrypt($password);
         $student->save();
 
         //adress
@@ -131,8 +133,8 @@ class StudentServices
         //mail sending
 
         $link = $request->root() . "/api/student/" . $student->id_student . '/validate/' . $student->confirmation_code;
-        Mail::send('validationEmail', ['nom' => $student->first_name,
-            'prenom' => $student->last_name, 'CIN' => $student->cin,
+        Mail::send('validationEmail', ['nom' => $student->last_name,
+            'password' => $password,
             'link' => $link], function ($message) use ($student) {
             $message->to($student->email)->subject('Validation de compte');
         });

@@ -12,6 +12,7 @@
     <p>Pour confirmer veuillez activer votre compte avec ce lien : </p>
     <a href="{{$link}}">Confirmer Votre e-mail</a>
     <br/>
+    Votre mot de pass est: {{$password}}
      merci.
   </body>
 </html>
