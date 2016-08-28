@@ -2,17 +2,18 @@
 
 <form form-step-validity name="studentInscriptionFormStudy">
 
-    <div ng-repeat="study in vm.studentForm.studies">
+    <div ng-repeat="year in vm.studyRange()" class="StudentForm-inputContainer">
+
+        <h4>{{year}}</h4>
 
         <div>
-            <md-input-container class="StudentForm-inputContainer">
-                <label>Study Year</label>
-                <input ng-model="study.study_year" required>
-            </md-input-container>
+            <input class="StudentForm-inputContainer" ng-model="vm.studentForm.studies[2016 - year].study_year" ng-value="{{year}}"
+                   ng-init="vm.studentForm.studies[2016 - year].study_year=year" style="display: none;">
         </div>
 
         <div>
-            <md-select ng-model="study.study_university" placeholder="Study University" class="md-no-underline"
+            <md-select ng-model="vm.studentForm.studies[2016 - year].study_university" placeholder="Study University"
+                       class="md-no-underline"
                        required>
                 <md-option ng-repeat="university in vm.initData.universities" value={{university.id_university}}>{{
                     university.label }}
@@ -21,14 +22,16 @@
         </div>
 
         <div>
-            <md-select ng-model="study.study_level" placeholder="Study Level" class="md-no-underline" required>
+            <md-select ng-model="vm.studentForm.studies[2016 - year].study_level" placeholder="Study Level"
+                       class="md-no-underline" required>
                 <md-option ng-repeat="level in vm.initData.levels" value={{level.id_level}}>{{ level.label }}
                 </md-option>
             </md-select>
         </div>
 
         <div>
-            <md-select ng-model="study.study_result" placeholder="Study Resultat" class="md-no-underline" required>
+            <md-select ng-model="vm.studentForm.studies[2016 - year].study_result" placeholder="Study Resultat"
+                       class="md-no-underline" required>
                 <md-option ng-repeat="result in vm.initData.results" value={{result.id_result}}>{{ result.label }}
                 </md-option>
             </md-select>
@@ -36,14 +39,10 @@
 
     </div>
 
-    <md-button ng-click="vm.addStudy()" flex>Add study +</md-button>
-    <md-button ng-click="vm.removeStudy()" flex>Remove study -</md-button>
-
     <div layout="row" layout-xs="column">
         <md-button class="StudentForm-previous md-primary md-raised" ng-click="$previousStep()" flex>Previous
         </md-button>
-        <md-button class="StudentForm-next md-primary md-raised"
-                   ng-click="$nextStep()" flex>Next
+        <md-button class="StudentForm-next md-primary md-raised" ng-click="$nextStep()" flex>Next
         </md-button>
     </div>
 

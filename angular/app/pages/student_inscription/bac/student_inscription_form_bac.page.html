@@ -41,7 +41,7 @@
         </md-button>
         <md-button class="StudentForm-next md-primary md-raised"
                    ng-disabled="studentInscriptionFormBac.$invalid"
-                   ng-click="$nextStep()" flex>Next
+                   ng-click="vm.studentForm.bac_year >= 2016 ? $setActiveIndex(5) : $nextStep()" flex>Next
         </md-button>
     </div>
 

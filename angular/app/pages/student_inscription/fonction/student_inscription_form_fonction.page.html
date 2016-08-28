@@ -60,7 +60,8 @@
 
 
     <div layout="row" layout-xs="column">
-        <md-button class="StudentForm-previous md-primary md-raised" ng-click="$previousStep()" flex>Previous
+        <md-button class="StudentForm-previous md-primary md-raised"
+                   ng-click="vm.studentForm.bac_year >= 2016 ? $setActiveIndex(3) : $previousStep()" flex>Previous
         </md-button>
         <md-button class="StudentForm-next md-primary md-raised"
                    ng-click="$nextStep()" flex>Next

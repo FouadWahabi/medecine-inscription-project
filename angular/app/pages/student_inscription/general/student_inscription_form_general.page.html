@@ -89,22 +89,17 @@
     </div>
 
     <div>
-        <md-input-container class="StudentForm-inputContainer">
-            <label>Année accés aux étude universitaire</label>
-            <input type="text" ng-model="vm.studentForm.study_access_year" required>
-        </md-input-container>
-    </div>
-
-    <div>
-        <md-checkbox ng-model="vm.studentForm.oriented" aria-label="Oriented" required>
-            Oriented
-        </md-checkbox>
+        <md-radio-group ng-model="vm.studentForm.oriented" class="StudentForm-inputContainer" required>
+            <md-radio-button ng-value="true" class="md-primary">Orienté</md-radio-button>
+            <md-radio-button ng-value="false" class="md-primary">Reorienté</md-radio-button>
+        </md-radio-group>
     </div>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
             <label>Origin University (en cas du réorientaion)</label>
-            <input type="text" ng-model="vm.studentForm.origin_university">
+            <input type="text" ng-model="vm.studentForm.origin_university"
+                   ng-disabled="vm.studentForm.oriented==undefined || vm.studentForm.oriented">
         </md-input-container>
     </div>
 

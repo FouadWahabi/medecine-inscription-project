@@ -17,14 +17,9 @@ class StudentInscriptionFormController {
 
         this.studentForm = {};
 
-        this.initData = {};
+        this.studentForm.studies = [];
 
-        this.studentForm.studies = [{
-            study_year: "",
-            study_university: "",
-            study_level: "",
-            study_resultat: ""
-        }];
+        this.initData = {};
 
         this.$scope.steps = [
             {
@@ -43,13 +38,13 @@ class StudentInscriptionFormController {
                 hasForm: true
             },
             {
-                templateUrl: './views/app/pages/student_inscription/fonction/student_inscription_form_fonction.page.html',
-                title: 'fonction',
+                templateUrl: './views/app/pages/student_inscription/study/student_inscription_form_study.page.html',
+                title: 'Study',
                 hasForm: true
             },
             {
-                templateUrl: './views/app/pages/student_inscription/study/student_inscription_form_study.page.html',
-                title: 'Study',
+                templateUrl: './views/app/pages/student_inscription/fonction/student_inscription_form_fonction.page.html',
+                title: 'Fonction',
                 hasForm: true
             },
             {
@@ -94,6 +89,23 @@ class StudentInscriptionFormController {
         } else {
             return [];
         }
+    }
+
+    studyRange() {
+        var input = [];
+        for (var i = parseInt(this.studentForm.bac_year) + 1; i < 2017; i += 1) {
+            input.push(i.toString());
+            if ((i - parseInt(this.studentForm.bac_year)) > this.studentForm.studies.length) {
+                this.studentForm.studies.push({
+                    study_year: "",
+                    study_university: "",
+                    study_level: "",
+                    study_result: ""
+                });
+            }
+        }
+        console.log(input)
+        return input;
     }
 
 }
