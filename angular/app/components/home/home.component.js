@@ -35,6 +35,7 @@ class HomeController {
         this.API.all("student/" + this.user.id_student + "/upload-photo").post(params)
             .then((res)=> {
                 this.user.img = res.response;
+                localStorage.setItem("user", JSON.stringify(this.user));
                 this.ToastService.show("Image Added success");
             });
     }

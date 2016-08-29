@@ -65,7 +65,7 @@ class StudentController extends Controller
             $student->valid = true;
             $student->save();
         }
-        return response()->json(['response' => 'student account validation success'], 200);
+        return redirect()->action('AngularController@serveApp');
 
     }
 
@@ -84,7 +84,7 @@ class StudentController extends Controller
             $nom = str_random(10);
         } while (file_exists($chemin . '/' . $nom));
 
-        $path = public_path($chemin . '/' . $nom);
+        $path = $chemin . '/' . $nom;
 
         $this->utils->base64_to_jpeg($data, $path);
 
