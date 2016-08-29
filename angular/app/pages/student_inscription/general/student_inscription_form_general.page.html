@@ -32,7 +32,15 @@
 
     <div>
         <h4>Date de naissance</h4>
-        <md-datepicker ng-model="vm.studentForm.birthday" md-placeholder="Birthday" required></md-datepicker>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>YYYY-MM-JJ</label>
+            <input name="phone" ng-model="vm.studentForm.birthday"
+                   ng-pattern="/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/" required>
+            <div class="hint" ng-show="showHints">Il faut écrivez la date sous la format suivante : YYYY-MM-JJ</div>
+            <div ng-messages="studentForm.birthday.$error" ng-hide="showHints">
+                <div ng-message="pattern">Il faut écrivez la date sous la format suivante : YYYY-MM-JJ</div>
+            </div>
+        </md-input-container>
     </div>
 
     <div>
@@ -69,15 +77,15 @@
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Phone</label>
+            <label>Tel fixe</label>
             <input ng-model="vm.studentForm.phone" ng-pattern="/^[0-9]{8}$/">
         </md-input-container>
     </div>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Mobile</label>
-            <input ng-model="vm.studentForm.mobile" ng-model="vm.studentForm.mobile">
+            <label>Téléphone mobile</label>
+            <input ng-model="vm.studentForm.mobile" ng-model="vm.studentForm.mobile" required>
         </md-input-container>
     </div>
 
@@ -102,7 +110,6 @@
                    ng-disabled="vm.studentForm.oriented==undefined || vm.studentForm.oriented">
         </md-input-container>
     </div>
-
     <div layout="row" layout-xs="column">
         <md-button class="StudentForm-next md-primary md-raised"
                    ng-disabled="studentInscriptionFormGeneral.$invalid"

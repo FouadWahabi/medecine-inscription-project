@@ -55,17 +55,22 @@ class StudentServices
         $student = new Student();
         $student->first_name = $data["first_name"];
         $student->last_name = $data["last_name"];
-        $student->second_name = $data["second_name"];
+        if ($request->has(["second_name"]))
+            $student->second_name = $data["second_name"];
         $student->sex = $data["sex"];
         $student->birthday = $data["birthday"];
-        $student->cin = $data["cin"];
-        $student->passport = $data["passport"];
-        $student->phone = $data["phone"];
+        if ($request->has(["cin"]))
+            $student->cin = $data["cin"];
+        if ($request->has(["passport"]))
+            $student->passport = $data["passport"];
+        if ($request->has(["phone"]))
+            $student->phone = $data["phone"];
         $student->mobile = $data["mobile"];
         $student->email = $data["email"];
-        $student->study_access_year = $data["study_access_year"];
+        $student->study_access_year = $data["bac_year"] + 1;
         $student->oriented = $data["oriented"];
-        $student->origin_university = $data["origin_university"];
+        if ($request->has(["origin_university"]))
+            $student->origin_university = $data["origin_university"];
         $student->id_city = $data["birthday_city"];
         $student->confirmation_code = str_random(50);
         $password = str_random(8);
@@ -78,6 +83,7 @@ class StudentServices
         $adress->ligne1 = $data["label_address"];
         $adress->id_city = $data["address_city"];
         $adress->id_student = $student->id_student;
+        $adress->id_fonction = 0;
         $adress->save();
 
         //bac
@@ -110,24 +116,6 @@ class StudentServices
             $doctaurat->id_mention = $data['doctaurat_id_mention'];
             $doctaurat->id_student = $student->id_student;
             $doctaurat->save();
-        }
-
-        //focntion
-        if ($request->has(['nature'])) {
-            $fonction = new Fonction();
-            $fonction->id_student = $student->id_student;
-            $fonction->nature = $data['nature'];
-            $fonction->employer = $data['employer'];
-            $fonction->date_of_inauguration = $data['date_of_inauguration'];
-            $fonction->save();
-
-            //fonction's adress
-            $adress = new Adress();
-            $adress->postal_code = $data["fonction_postal_code"];
-            $adress->ligne1 = $data["fonction_label_adress"];
-            $adress->id_city = $data["fonction_id_city"];
-            $adress->id_fonction = $fonction->id_fonction;
-            $adress->save();
         }
 
         //mail sending

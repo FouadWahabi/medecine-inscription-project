@@ -32,8 +32,8 @@ class StudentController extends Controller
     function add(Request $request)
     {
         if (!$request->has([
-            'last_name', 'first_name', 'second_name', 'sex', 'birthday', 'birthday_city', 'cin', 'passport',
-            'phone', 'mobile', 'email', 'study_access_year', 'oriented', 'postal_code', 'label_address',
+            'last_name', 'first_name', 'sex', 'birthday', 'birthday_city',
+            'mobile', 'email', 'oriented', 'postal_code', 'label_address',
             'address_city', 'bac_year', 'bac_average', 'bac_school', 'bac_mention', 'bac_type'])
         ) {
             return response()->json(['response' => 'Invalid Input'], 400);
