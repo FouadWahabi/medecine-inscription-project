@@ -36,6 +36,7 @@ class CreateEtudiantTable extends Migration
             $t->boolean("valid_from_administration");
             $t->string("confirmation_code");
             $t->string("img");
+            $t->string("nom_de_famille");
 
             #foreign
             $t->integer("id_city")->unsigned();

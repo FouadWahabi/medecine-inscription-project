@@ -14,7 +14,7 @@ class Student extends Model implements Authenticatable
     protected $fillable = [
         'last_name', 'first_name', 'second_name', 'sex', 'birthday', 'id_city', 'cin', 'passport', 'phone',
         'mobile', 'email', 'study_access_year', 'oriented', 'origin_university', 'password', 'valid',
-        'qr_code', 'login', 'confirmation_code', 'valid_from_administration', 'img' ,'valid_dossier'
+        'qr_code', 'login', 'confirmation_code', 'valid_from_administration', 'img', 'valid_dossier', "nom_de_famille"
     ];
 
     protected $hidden = [

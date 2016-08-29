@@ -7,7 +7,6 @@ use App\Models\Bac;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Doctaurat;
-use App\Models\Fonction;
 use App\Models\Level;
 use App\Models\Mention;
 use App\Models\Result;
@@ -61,6 +60,8 @@ class StudentServices
         $student->birthday = $data["birthday"];
         if ($request->has(["cin"]))
             $student->cin = $data["cin"];
+        if ($request->has(["nom_de_famille"]))
+            $student->nom_de_famille = $data["nom_de_famille"];
         if ($request->has(["passport"]))
             $student->passport = $data["passport"];
         if ($request->has(["phone"]))
