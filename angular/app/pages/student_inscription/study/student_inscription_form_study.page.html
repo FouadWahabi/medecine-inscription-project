@@ -1,4 +1,4 @@
-<h1 class="md-headline">Etude médicales antérieures</h1>
+<h1 class="md-headline">Etudes médicales antérieures</h1>
 
 <form form-step-validity name="studentInscriptionFormStudy">
 
@@ -12,7 +12,7 @@
         </div>
 
         <div>
-            <md-select ng-model="vm.studentForm.studies[2016 - year].study_university" placeholder="Study University"
+            <md-select ng-model="vm.studentForm.studies[2016 - year].study_university" placeholder="Université"
                        class="md-no-underline"
                        required>
                 <md-option ng-repeat="university in vm.initData.universities" value={{university.id_university}}>{{
@@ -22,7 +22,7 @@
         </div>
 
         <div>
-            <md-select ng-model="vm.studentForm.studies[2016 - year].study_level" placeholder="Study Level"
+            <md-select ng-model="vm.studentForm.studies[2016 - year].study_level" placeholder="Niveau"
                        class="md-no-underline" required>
                 <md-option ng-repeat="level in vm.initData.levels" value={{level.id_level}}>{{ level.label }}
                 </md-option>
@@ -30,7 +30,7 @@
         </div>
 
         <div>
-            <md-select ng-model="vm.studentForm.studies[2016 - year].study_result" placeholder="Study Resultat"
+            <md-select ng-model="vm.studentForm.studies[2016 - year].study_result" placeholder="Résultat"
                        class="md-no-underline" required>
                 <md-option ng-repeat="result in vm.initData.results" value={{result.id_result}}>{{ result.label }}
                 </md-option>

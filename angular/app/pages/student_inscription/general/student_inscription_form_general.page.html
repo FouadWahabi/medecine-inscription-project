@@ -10,7 +10,7 @@
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>1ére Prénom</label>
+            <label>1er Prénom</label>
             <input type="text" ng-model="vm.studentForm.last_name" required>
         </md-input-container>
     </div>
@@ -44,9 +44,9 @@
     </div>
 
     <div>
-        <h4>Birthday City</h4>
+        <h4>Pays de naissance</h4>
 
-        <md-select name="birthday_country" ng-model="vm.birthday_country" placeholder="Birthday Country"
+        <md-select name="birthday_country" ng-model="vm.birthday_country" placeholder="Pays de naissance"
                    class="md-no-underline" required>
             <md-option ng-repeat="country in vm.initData.countries" value={{country.id_country}}>{{ country.label
                 }}
@@ -54,7 +54,7 @@
         </md-select>
 
         <md-select ng-disabled="studentInscriptionFormGeneral.birthday_country.$invalid"
-                   ng-model="vm.studentForm.birthday_city" placeholder="Birthday City" class="md-no-underline" required>
+                   ng-model="vm.studentForm.birthday_city" placeholder="Ville de naissance" class="md-no-underline" required>
             <md-option ng-repeat="city in vm.getCities(vm.birthday_country)" value={{city.id_city}}>{{ city.label
                 }}
             </md-option>
@@ -77,14 +77,14 @@
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Tel fixe</label>
+            <label>N° téléphone fixe </label>
             <input ng-model="vm.studentForm.phone" ng-pattern="/^[0-9]{8}$/">
         </md-input-container>
     </div>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Téléphone mobile</label>
+            <label>N° téléphone mobile</label>
             <input ng-model="vm.studentForm.mobile" ng-model="vm.studentForm.mobile" required>
         </md-input-container>
     </div>
@@ -98,14 +98,14 @@
 
     <div>
         <md-radio-group ng-model="vm.studentForm.oriented" class="StudentForm-inputContainer" required>
-            <md-radio-button ng-value="true" class="md-primary">Orienté</md-radio-button>
-            <md-radio-button ng-value="false" class="md-primary">Reorienté</md-radio-button>
+            <md-radio-button ng-value="true" class="md-primary">Orienté(e)</md-radio-button>
+            <md-radio-button ng-value="false" class="md-primary">Réorienté(e)</md-radio-button>
         </md-radio-group>
     </div>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Origin University (en cas du réorientaion)</label>
+            <label>Université d'originey (en cas du réorientaion)</label>
             <input type="text" ng-model="vm.studentForm.origin_university"
                    ng-disabled="vm.studentForm.oriented==undefined || vm.studentForm.oriented">
         </md-input-container>

@@ -1,24 +1,23 @@
-<h1 class="md-headline">Doctaurat (n'est pas obligatoire)</h1>
+<h1 class="md-headline">Doctaurat (Optionnel)</h1>
 
 <form form-step-validity name="studentInscriptionFormDoctaurat" ng-submit="vm.register()">
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
             <label>Numero du doctaurat</label>
-            <input ng-model="vm.studentForm.doctaurat_numero" ng-pattern="/^[0-9]*$/" >
+            <input ng-model="vm.studentForm.doctaurat_numero" ng-pattern="/^[0-9]*$/">
         </md-input-container>
     </div>
 
     <div>
         <h4>Date de soutenance</h4>
         <md-datepicker ng-model="vm.studentForm.doctaurat_date_of_pitch" md-placeholder="Date soutenance"
-                       ></md-datepicker>
+                ></md-datepicker>
     </div>
 
     <div>
-        <md-select ng-model="vm.studentForm.doctaurat_id_university" placeholder="Doctaurat university"
-                   class="md-no-underline"
-                   >
+        <md-select ng-model="vm.studentForm.doctaurat_id_university" placeholder="Université"
+                   class="md-no-underline">
             <md-option ng-repeat="university in vm.initData.universities" value={{university.id_university}}>{{
                 university.label }}
             </md-option>
@@ -26,8 +25,8 @@
     </div>
 
     <div>
-        <md-select ng-model="vm.studentForm.doctaurat_id_mention" placeholder="Doctaurat Mention"
-                   class="md-no-underline" >
+        <md-select ng-model="vm.studentForm.doctaurat_id_mention" placeholder="Mention"
+                   class="md-no-underline">
             <md-option ng-repeat="mention in vm.initData.mentions" value={{mention.id_mention}}>{{ mention.label }}
             </md-option>
         </md-select>

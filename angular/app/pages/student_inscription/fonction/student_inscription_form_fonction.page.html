@@ -1,4 +1,4 @@
-<h1 class="md-headline">Fonction (n'est pas obligatoire)</h1>
+<h1 class="md-headline">Fonction (Optionnel)</h1>
 
 <form form-step-validity name="studentInscriptionFormFonction">
 
@@ -40,7 +40,7 @@
     </div>
 
     <div>
-        <md-select name="fonction_country" ng-model="vm.fonction_country" placeholder="Fonction Country"
+        <md-select name="fonction_country" ng-model="vm.fonction_country" placeholder="Pays"
                    class="md-no-underline" required>
             <md-option ng-repeat="country in vm.initData.countries" value={{country.id_country}}>{{ country.label
                 }}
@@ -48,7 +48,7 @@
         </md-select>
 
         <md-select ng-disabled="studentInscriptionFormFonction.fonction_country.$invalid"
-                   ng-model="vm.studentForm.fonction_id_city" placeholder="Birthday City" class="md-no-underline"
+                   ng-model="vm.studentForm.fonction_id_city" placeholder="Ville" class="md-no-underline"
                    required>
             <md-option ng-repeat="city in vm.getCities(vm.fonction_country)" value={{city.id_city}}>{{ city.label
                 }}
