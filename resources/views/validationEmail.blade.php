@@ -13,6 +13,7 @@
     <a href="{{$link}}">Confirmer Votre e-mail</a>
     <br/>
     Votre mot de pass est: {{$password}}
-     merci.
+    <br/>
+    merci.
   </body>
 </html>

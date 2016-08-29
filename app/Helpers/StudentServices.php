@@ -83,7 +83,6 @@ class StudentServices
         $adress->ligne1 = $data["label_address"];
         $adress->id_city = $data["address_city"];
         $adress->id_student = $student->id_student;
-        $adress->id_fonction = 0;
         $adress->save();
 
         //bac
