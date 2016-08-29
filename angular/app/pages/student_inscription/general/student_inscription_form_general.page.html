@@ -23,6 +23,13 @@
     </div>
 
     <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Nom de naissance</label>
+            <input type="text" ng-model="vm.studentForm.nom_de_famille">
+        </md-input-container>
+    </div>
+
+    <div>
         <h4>Sexe</h4>
         <md-radio-group ng-model="vm.studentForm.sex" class="StudentForm-inputContainer" required>
             <md-radio-button value="Homme" class="md-primary">Homme</md-radio-button>
