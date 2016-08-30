@@ -1,4 +1,4 @@
-<h1 class="md-headline">General informations</h1>
+<h1 class="md-headline">Informations Générale</h1>
 
 <form form-step-validity name="studentInscriptionFormGeneral">
     <div>
@@ -19,13 +19,6 @@
         <md-input-container class="StudentForm-inputContainer">
             <label>2éme Prénom</label>
             <input type="text" ng-model="vm.studentForm.second_name">
-        </md-input-container>
-    </div>
-
-    <div>
-        <md-input-container class="StudentForm-inputContainer">
-            <label>Nom de naissance</label>
-            <input type="text" ng-model="vm.studentForm.nom_de_famille">
         </md-input-container>
     </div>
 
@@ -51,8 +44,6 @@
     </div>
 
     <div>
-        <h4>Pays de naissance</h4>
-
         <md-select name="birthday_country" ng-model="vm.birthday_country" placeholder="Pays de naissance"
                    class="md-no-underline" required>
             <md-option ng-repeat="country in vm.initData.countries" value={{country.id_country}}>{{ country.label
