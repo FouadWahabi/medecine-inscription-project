@@ -62,10 +62,32 @@ class StudentInscriptionFormController {
     }
 
     register() {
+        console.log(this.studentForm.birthday);
+        this.studentForm.birthday = this.getFormatDate(this.studentForm.birthday);
+        this.studentForm.date_of_inauguration = this.getFormatDate(this.studentForm.date_of_inauguration);
+        this.studentForm.doctaurat_date_of_pitc = this.getFormatDate(this.studentForm.doctaurat_date_of_pitc);
         this.API.all('student/create').post(this.studentForm).then(() => {
-            this.ToastService.show(`Thanks for registering`);
-            this.$state.go('app.landing');
-        });
+                this.ToastService.show(`Thanks for registering`);
+                this.$state.go('app.landing');
+            })
+            .catch(this.failedRegister.bind(this));
+
+    }
+
+    getFormatDate(data) {
+        if (data != undefined) {
+            var jj = data.substring(0, 2);
+            var mm = data.substring(3, 5);
+            var aa = data.substring(6);
+            return aa + "-" + mm + "-" + jj;
+        }
+        return undefined;
+    }
+
+    failedRegister(response) {
+        console.log(response);
+        if (response.status == 400)
+            this.ToastService.error(response.data.errors.message[0]);
     }
 
     addStudy() {

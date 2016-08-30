@@ -4,33 +4,51 @@
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Année</label>
-            <input ng-model="vm.studentForm.bac_year" ng-pattern="/^[0-9]{4}$/" required>
+            <label>Année*</label>
+            <input ng-model="vm.studentForm.bac_year" name="bac_year" ng-pattern="/^[0-9]{4}$/" required>
+            <div
+                    ng-messages="studentInscriptionFormBac.bac_year.$error"
+                    ng-show="studentInscriptionFormBac.bac_year.$touched && studentInscriptionFormBac.bac_year.$invalid">
+                <div ng-include="'include/messages.html'"></div>
+
+            </div>
         </md-input-container>
     </div>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Moyenne générale</label>
-            <input type="text" ng-model="vm.studentForm.bac_average" required>
+            <label>Moyenne générale*</label>
+            <input type="number" step="any" ng-model="vm.studentForm.bac_average" name="bac_average" required>
+            <div
+                    ng-messages="studentInscriptionFormBac.bac_average.$error"
+                    ng-show="studentInscriptionFormBac.bac_average.$touched && studentInscriptionFormBac.bac_average.$invalid">
+                <div ng-include="'include/messages.html'"></div>
+
+            </div>
         </md-input-container>
     </div>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Lycée</label>
-            <input type="text" ng-model="vm.studentForm.bac_school" required>
+            <label>Lycée*</label>
+            <input type="text" ng-model="vm.studentForm.bac_school" name="bac_school" required>
+             <div
+                    ng-messages="studentInscriptionFormBac.bac_school.$error"
+                    ng-show="studentInscriptionFormBac.bac_school.$touched && studentInscriptionFormBac.bac_school.$invalid">
+                <div ng-include="'include/messages.html'"></div>
+
+            </div>
         </md-input-container>
     </div>
 
     <div>
-        <md-select ng-model="vm.studentForm.bac_type" placeholder="Section" class="md-no-underline" required>
+        <md-select ng-model="vm.studentForm.bac_type" placeholder="Section*" class="md-no-underline" required>
             <md-option ng-repeat="type in vm.initData.bactypes" value={{type.id_type}}>{{ type.label }}</md-option>
         </md-select>
     </div>
 
     <div>
-        <md-select ng-model="vm.studentForm.bac_mention" placeholder="Mention" class="md-no-underline" required>
+        <md-select ng-model="vm.studentForm.bac_mention" placeholder="Mention*" class="md-no-underline" required>
             <md-option ng-repeat="mention in vm.initData.mentions" value={{mention.id_mention}}>{{ mention.label }}
             </md-option>
         </md-select>

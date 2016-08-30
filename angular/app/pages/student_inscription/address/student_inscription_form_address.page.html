@@ -4,20 +4,32 @@
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Code postal</label>
-            <input ng-model="vm.studentForm.postal_code" ng-pattern="/^[0-9]{4}$/" required>
+            <label>Code postal*</label>
+            <input ng-model="vm.studentForm.postal_code" name="postal_code" ng-pattern="/^[0-9]{4}$/" required>
+            <div
+                    ng-messages="studentInscriptionFormGeneral.postal_code.$error"
+                    ng-show="studentInscriptionFormAddress.postal_code.$touched && studentInscriptionFormAddress.postal_code.$invalid">
+                <div ng-include="'include/messages.html'"></div>
+
+            </div>
         </md-input-container>
     </div>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Adresse</label>
-            <input type="text" ng-model="vm.studentForm.label_address" required>
+            <label>Adresse*</label>
+            <input type="text" ng-model="vm.studentForm.label_address" name="label_address" required>
+            <div
+                    ng-messages="studentInscriptionFormGeneral.label_address.$error"
+                    ng-show="studentInscriptionFormAddress.label_address.$touched && studentInscriptionFormAddress.label_address.$invalid">
+                <div ng-include="'include/messages.html'"></div>
+
+            </div>
         </md-input-container>
     </div>
 
     <div>
-        <md-select name="address_country" ng-model="vm.address_country" placeholder="Pays"
+        <md-select name="address_country" ng-model="vm.address_country" placeholder="Pays*"
                    class="md-no-underline" required>
             <md-option ng-repeat="country in vm.initData.countries" value={{country.id_country}}>{{ country.label
                 }}
@@ -25,7 +37,7 @@
         </md-select>
 
         <md-select ng-disabled="studentInscriptionFormAddress.address_country.$invalid"
-                   ng-model="vm.studentForm.address_city" placeholder="Ville" class="md-no-underline" required>
+                   ng-model="vm.studentForm.address_city" placeholder="Ville*" class="md-no-underline" required>
             <md-option ng-repeat="city in vm.getCities(vm.address_country)" value={{city.id_city}}>{{ city.label
                 }}
             </md-option>

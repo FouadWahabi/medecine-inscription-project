@@ -37,6 +37,7 @@ class LoginFormController {
 
     failedLogin(response) {
         console.log(response);
+        
         this.ToastService.error(response.data.errors.message[0]);
     }
 }

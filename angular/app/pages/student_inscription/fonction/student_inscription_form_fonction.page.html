@@ -18,8 +18,16 @@
 
     <div>
         <h4>Date de prise de fonction</h4>
-        <md-datepicker ng-model="vm.studentForm.date_of_inauguration" md-placeholder="Inaugration date"
-                       required></md-datepicker>
+
+             <md-input-container class="md-block" flex-gt-sm>
+            <label>jj-mm-aaaa</label>
+            <input name="date_of_inauguration" ng-model="vm.studentForm.date_of_inauguration"
+                   ng-pattern="/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/">
+            <div class="hint" ng-show="showHints">Il faut écrivez la date sous la format suivante : jj-mm-aaaa</div>
+            <div ng-messages="studentInscriptionFormFonction.date_of_inauguration.$error" ng-hide="showHints">
+                <div ng-message="pattern">Il faut écrivez la date sous la format suivante : jj-mm-aaaa</div>
+            </div>
+        </md-input-container>
     </div>
 
     <div>

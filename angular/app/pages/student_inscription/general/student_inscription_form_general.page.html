@@ -3,16 +3,30 @@
 <form form-step-validity name="studentInscriptionFormGeneral">
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Nom de famille</label>
-            <input type="text" ng-model="vm.studentForm.first_name" required>
+            <label>Nom de famille*</label>
+            <input type="text" ng-model="vm.studentForm.first_name" name="first_name" required>
+            <div
+                    ng-messages="studentInscriptionFormGeneral.first_name.$error"
+                    ng-show="studentInscriptionFormGeneral.first_name.$touched && studentInscriptionFormGeneral.first_name.$invalid">
+                <div ng-include="'include/messages.html'"></div>
+
+            </div>
         </md-input-container>
+
     </div>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>1er Prénom</label>
-            <input type="text" ng-model="vm.studentForm.last_name" required>
+            <label>1er Prénom*</label>
+            <input type="text" ng-model="vm.studentForm.last_name" name="last_name" required>
+            <div
+                    ng-messages="studentInscriptionFormGeneral.last_name.$error"
+                    ng-show="studentInscriptionFormGeneral.last_name.$touched && studentInscriptionFormGeneral.last_name.$invalid">
+                <div ng-include="'include/messages.html'"></div>
+
+            </div>
         </md-input-container>
+
     </div>
 
     <div>
@@ -21,9 +35,15 @@
             <input type="text" ng-model="vm.studentForm.second_name">
         </md-input-container>
     </div>
+    <div>
+        <md-input-container class="StudentForm-inputContainer">
+            <label>Nom de naissance</label>
+            <input type="text" ng-model="vm.studentForm.nom_de_famille">
+        </md-input-container>
+    </div>
 
     <div>
-        <h4>Sexe</h4>
+        <h4>Sexe*</h4>
         <md-radio-group ng-model="vm.studentForm.sex" class="StudentForm-inputContainer" required>
             <md-radio-button value="Homme" class="md-primary">Homme</md-radio-button>
             <md-radio-button value="Femme" class="md-primary">Femme</md-radio-button>
@@ -31,20 +51,20 @@
     </div>
 
     <div>
-        <h4>Date de naissance</h4>
+        <h4>Date de naissance*</h4>
         <md-input-container class="md-block" flex-gt-sm>
-            <label>YYYY-MM-JJ</label>
+            <label>jj-mm-aaaa</label>
             <input name="phone" ng-model="vm.studentForm.birthday"
-                   ng-pattern="/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/" required>
-            <div class="hint" ng-show="showHints">Il faut écrivez la date sous la format suivante : YYYY-MM-JJ</div>
+                   ng-pattern="/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/" required>
+            <div class="hint" ng-show="showHints">Il faut écrivez la date sous la format suivante : jj-mm-aaaa</div>
             <div ng-messages="studentForm.birthday.$error" ng-hide="showHints">
-                <div ng-message="pattern">Il faut écrivez la date sous la format suivante : YYYY-MM-JJ</div>
+                <div ng-message="pattern">Il faut écrivez la date sous la format suivante : jj-mm-aaaa</div>
             </div>
         </md-input-container>
     </div>
 
     <div>
-        <md-select name="birthday_country" ng-model="vm.birthday_country" placeholder="Pays de naissance"
+        <md-select name="birthday_country" ng-model="vm.birthday_country" placeholder="Pays de naissance*"
                    class="md-no-underline" required>
             <md-option ng-repeat="country in vm.initData.countries" value={{country.id_country}}>{{ country.label
                 }}
@@ -52,7 +72,8 @@
         </md-select>
 
         <md-select ng-disabled="studentInscriptionFormGeneral.birthday_country.$invalid"
-                   ng-model="vm.studentForm.birthday_city" placeholder="Ville de naissance" class="md-no-underline" required>
+                   ng-model="vm.studentForm.birthday_city" placeholder="Ville de naissance*" class="md-no-underline"
+                   required>
             <md-option ng-repeat="city in vm.getCities(vm.birthday_country)" value={{city.id_city}}>{{ city.label
                 }}
             </md-option>
@@ -82,28 +103,42 @@
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>N° téléphone mobile</label>
-            <input ng-model="vm.studentForm.mobile" ng-model="vm.studentForm.mobile" required>
+            <label>N° téléphone mobile*</label>
+            <input type="number" ng-model="vm.studentForm.mobile" ng-model="vm.studentForm.mobile" name="mobile"
+                   required>
+            <div
+                    ng-messages="studentInscriptionFormGeneral.mobile.$error"
+                    ng-show="studentInscriptionFormGeneral.mobile.$touched && studentInscriptionFormGeneral.mobile.$invalid">
+                <div ng-include="'include/messages.html'"></div>
+
+            </div>
         </md-input-container>
     </div>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Email</label>
-            <input type="email" ng-model="vm.studentForm.email" required>
+            <label>Email*</label>
+            <input type="email" ng-model="vm.studentForm.email" name="email" required>
+            <div
+                    ng-messages="studentInscriptionFormGeneral.email.$error"
+                    ng-show="studentInscriptionFormGeneral.email.$touched && studentInscriptionFormGeneral.email.$invalid">
+                <div ng-include="'include/messages.html'"></div>
+                <div ng-message="email">Email n'est pas valid</div>
+            </div>
         </md-input-container>
     </div>
 
     <div>
+        <h4>Accés aux études médicales*</h4>
         <md-radio-group ng-model="vm.studentForm.oriented" class="StudentForm-inputContainer" required>
-            <md-radio-button ng-value="true" class="md-primary">Orienté(e)</md-radio-button>
-            <md-radio-button ng-value="false" class="md-primary">Réorienté(e)</md-radio-button>
+            <md-radio-button ng-value="true" class="md-primary">Orientation de première intention</md-radio-button>
+            <md-radio-button ng-value="false" class="md-primary">Réorientation</md-radio-button>
         </md-radio-group>
     </div>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
-            <label>Université d'originey (en cas du réorientaion)</label>
+            <label>Université d'origine (en cas du réorientaion)</label>
             <input type="text" ng-model="vm.studentForm.origin_university"
                    ng-disabled="vm.studentForm.oriented==undefined || vm.studentForm.oriented">
         </md-input-container>

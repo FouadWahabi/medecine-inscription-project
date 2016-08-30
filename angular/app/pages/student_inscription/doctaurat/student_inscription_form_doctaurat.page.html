@@ -1,18 +1,27 @@
 <h1 class="md-headline">Doctaurat (Optionnel)</h1>
 
-<form form-step-validity name="studentInscriptionFormDoctaurat" ng-submit="vm.register()">
+<form form-step-validity name="studentInscriptionFormDoctaurat" ng-submit="vm.register()" novalidate>
 
     <div>
         <md-input-container class="StudentForm-inputContainer">
             <label>Numero du doctaurat</label>
-            <input ng-model="vm.studentForm.doctaurat_numero" ng-pattern="/^[0-9]*$/">
+            <input ng-model="vm.studentInscriptionFormDoctaurat.doctaurat_numero" ng-pattern="/^[0-9]*$/">
         </md-input-container>
     </div>
 
     <div>
         <h4>Date de soutenance</h4>
-        <md-datepicker ng-model="vm.studentForm.doctaurat_date_of_pitch" md-placeholder="Date soutenance"
-                ></md-datepicker>
+    
+     <md-input-container class="md-block" flex-gt-sm>
+            <label>jj-mm-aaaa</label>
+            <input name="doctaurat_date_of_pitch" ng-model="vm.studentForm.doctaurat_date_of_pitc"
+                   ng-pattern="/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/">
+            <div class="hint" ng-show="showHints">Il faut écrivez la date sous la format suivante : jj-mm-aaaa</div>
+            <div ng-messages="studentInscriptionFormDoctaurat.doctaurat_date_of_pitch.$error" ng-hide="showHints">
+                <div ng-message="pattern">Il faut écrivez la date sous la format suivante : jj-mm-aaaa</div>
+            </div>
+        </md-input-container>
+                
     </div>
 
     <div>
